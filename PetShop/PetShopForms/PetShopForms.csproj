@@ -1,0 +1,86 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resource1.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Inicio.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Vistas\Administradores\Listado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Vistas\Clientes\Agregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Vistas\Clientes\Editar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Vistas\Clientes\Listado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Vistas\Empleados\Editar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Vistas\Empleados\Agregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Vistas\Empleados\Listado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Vistas\Productos\Agregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Vistas\Productos\Editar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Vistas\Productos\Listado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Vistas\Productos\ProductData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Vistas\Ventas\Agregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Vistas\Ventas\Editar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Vistas\Ventas\Listado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Vistas\Ventas\VentaDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Login.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Inicio.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
