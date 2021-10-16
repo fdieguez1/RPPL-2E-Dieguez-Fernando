@@ -62,11 +62,11 @@ namespace PetShopForms.Vistas.Productos
                 }
                 else
                 {
-                    foreach (Cliente clt in Empleado.ListaClientes)
+                    foreach (Cliente clt in Core.ListaClientes)
                     {
                         if (clt.Id == selectedId)
                         {
-                            if (Empleado.ListaClientes - clt)
+                            if (Core.ListaClientes - clt)
                             {
                                 MessageBox.Show("Empleado eliminado",
                                          "Operacion exitosa",

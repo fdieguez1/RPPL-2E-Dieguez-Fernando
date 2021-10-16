@@ -62,11 +62,11 @@ namespace PetShopForms.Vistas.Clientes
                 }
                 else
                 {
-                    foreach (Cliente clt in Empleado.ListaClientes)
+                    foreach (Cliente clt in Core.ListaClientes)
                     {
                         if (clt.Id == selectedId)
                         {
-                            if (Empleado.ListaClientes - clt)
+                            if (Core.ListaClientes - clt)
                             {
                                 MessageBox.Show("Cliente eliminado",
                                          "Operacion exitosa",
@@ -90,9 +90,9 @@ namespace PetShopForms.Vistas.Clientes
 
         void CargarClientes()
         {
-            if (Empleado.ListaClientes.Count > 0)
+            if (Core.ListaClientes.Count > 0)
             {
-                dgvClientes.DataSource = new List<Cliente>(Empleado.ListaClientes);
+                dgvClientes.DataSource = new List<Cliente>(Core.ListaClientes);
             }
         }
     }

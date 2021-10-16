@@ -1,5 +1,4 @@
 ﻿using Entidades;
-using Entidades.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,36 +13,15 @@ namespace PetShopForms.Vistas.Ventas
 {
     public partial class VentaData : Form
     {
-        double cantidad;
-        public double Cantidad
+        public VentaData()
         {
-            get { return this.cantidad; }
-            set
-            {
-                this.txtCantidad.Text = value.ToString();
-                this.cantidad = value;
-            }
-        }
-        private void VentaDataForm_Load(object sender, EventArgs e)
-        {
-            dgvClientes.DataSource = Empleado.ListaClientes;
-            dgvProductos.DataSource = Producto.ListaProductos;
+            InitializeComponent();
         }
 
-        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        private void VentaData_Load(object sender, EventArgs e)
         {
-            if (this.txtCantidad.Text.Length > 0)
-            {
-                if (Validaciones.ValidarDouble(this.txtCantidad.Text))
-                    this.Cantidad = int.Parse(this.txtCantidad.Text);
-                else
-                {
-                    this.txtCantidad.Text = string.Empty;
-                    MessageBox.Show("Solo estan permitidos numeros",
-                                         "Error",
-                                         MessageBoxButtons.OK);
-                }
-            }
+            dgvProductos.DataSource = Producto.ListaProductos;
+            dgvClientes.DataSource = Core.ListaClientes;
         }
     }
 }

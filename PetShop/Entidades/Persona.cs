@@ -149,7 +149,7 @@ namespace Entidades
         /// <returns>Devuelve el usuario encontrado si es exitoso, null si no hubo coincidencias</returns>
         public static Persona Login(string usuario, string contrasenia)
         {
-            foreach (Persona item in Administrador.ListaEmpleados)
+            foreach (Persona item in Core.ListaEmpleados)
             {
                 if (item.usuario == usuario && item.contrasenia == contrasenia)
                 {

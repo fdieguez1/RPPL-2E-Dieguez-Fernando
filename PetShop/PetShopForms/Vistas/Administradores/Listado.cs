@@ -62,11 +62,11 @@ namespace PetShopForms.Vistas.Administradores
                 }
                 else
                 {
-                    foreach (Empleado emp in Administrador.ListaEmpleados)
+                    foreach (Empleado emp in Core.ListaEmpleados)
                     {
                         if (emp.Id == selectedId)
                         {
-                            if (Administrador.ListaEmpleados - emp)
+                            if (Core.ListaEmpleados - emp)
                             {
                                 MessageBox.Show("Empleado eliminado",
                                          "Operacion exitosa",
@@ -90,7 +90,7 @@ namespace PetShopForms.Vistas.Administradores
 
         void CargarEmpleados()
         {
-            if (Entidades.Administrador.ListaEmpleados.Count > 0)
+            if (Entidades.Core.ListaEmpleados.Count > 0)
             {
                 dgvAdmins.DataSource = Administrador.ListarAdministradores();
             }

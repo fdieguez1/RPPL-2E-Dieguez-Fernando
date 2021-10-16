@@ -13,19 +13,6 @@ namespace Entidades
     public class Empleado : Persona
 #pragma warning restore CS0661
     {
-        static List<Cliente> listaClientes;
-        public static List<Cliente> ListaClientes
-        {
-            get { return listaClientes; }
-            set { listaClientes = value; }
-        }
-        public static int CantidadMaximaClientes { get; set; }
-        static Empleado()
-        {
-            ListaClientes = new List<Cliente>();
-            CantidadMaximaClientes = 20;
-        }
-
         double sueldo;
         public double Sueldo
         {
@@ -79,14 +66,14 @@ namespace Entidades
         public static bool CrearEmpleadoPrueba()
         {
             Empleado auxEmpleado = new Empleado($"Fernando", "Dieguez", "ferdieguez", "utnfra2021", 20111111112, 50000);
-            bool altaOk = Administrador.ListaEmpleados + auxEmpleado;
+            bool altaOk = Core.ListaEmpleados + auxEmpleado;
             int testCount = 0;
             for (int i = 0; i < 3; i++)
             {
                 testCount++;
                 int salary = new Random().Next(10000, 100000);
                 Empleado newEmp = new Empleado($"NombreTest", $"ApellidoTest", $"User{testCount}", "utnfra2021", 20111111112, salary);
-                altaOk = Administrador.ListaEmpleados + newEmp;
+                altaOk = Core.ListaEmpleados + newEmp;
                 if (!altaOk)
                 {
                     break;
@@ -128,7 +115,7 @@ namespace Entidades
         public static bool operator -(List<Empleado> listaEmpleados, Empleado empleado)
         {
             bool removeOk = false;
-            if (Administrador.CantidadMaximaEmpleados > listaEmpleados.Count)
+            if (Core.CantidadMaximaEmpleados > listaEmpleados.Count)
             {
                 foreach (Empleado emp in listaEmpleados)
                 {

@@ -19,7 +19,7 @@ namespace PetShopForms.Vistas.Clientes
         public Editar(int clienteId)
         {
             InitializeComponent();
-            foreach (Cliente clt in Empleado.ListaClientes)
+            foreach (Cliente clt in Core.ListaClientes)
             {
                 if (clt.Id == clienteId)
                 {
@@ -61,11 +61,11 @@ namespace PetShopForms.Vistas.Clientes
             {
                 Cliente  auxCliente = new Cliente(nombre, apellido, usuario, contrasenia, saldo, cuil);
                 auxCliente.Id = selectedCliente.Id;
-                for (int i = 0; i < Empleado.ListaClientes.Count; i++)
+                for (int i = 0; i < Core.ListaClientes.Count; i++)
                 {
-                    if (Empleado.ListaClientes[i] == selectedCliente)
+                    if (Core.ListaClientes[i] == selectedCliente)
                     {
-                        Empleado.ListaClientes[i] = auxCliente;
+                        Core.ListaClientes[i] = auxCliente;
                         MessageBox.Show("Empleado editado con exito",
                                     "Operacion exitosa",
                                     MessageBoxButtons.OK);

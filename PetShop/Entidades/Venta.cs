@@ -19,6 +19,14 @@ namespace Entidades
         Producto producto;
         Cliente cliente;
         int unidades;
+
+        static List<Venta> listaVentas;
+        public static List<Venta> ListaVentas
+        {
+            get { return listaVentas; }
+            set { listaVentas = value; }
+        }
+
         public int Id
         {
             get
@@ -77,19 +85,27 @@ namespace Entidades
                 this.unidades = value;
             }
         }
-
-        static List<Venta> listaVentas;
-        public static List<Venta> ListaVentas
+        public double TotalAPagar
         {
-            get { return listaVentas; }
-            set { listaVentas = value; }
+            get
+            {
+                return this.Producto.Precio * this.Unidades;
+            }
         }
+
+
         static Venta()
         {
             PrevId = 0;
             ListaVentas = new List<Venta>();
         }
 
+        /// <summary>
+        /// Constructor parametrizado de venta
+        /// </summary>
+        /// <param name="producto"></param>
+        /// <param name="cliente"></param>
+        /// <param name="unidades"></param>
         public Venta(Producto producto, Cliente cliente, int unidades)
         {
             this.Id = ++PrevId;
@@ -108,25 +124,18 @@ namespace Entidades
             foreach (object emp in ListaVentas)
             {
                 Venta venta = (Venta)emp;
-                ventasDisplay.Add(new {  
+                ventasDisplay.Add(new
+                {
                     Id = venta.id,
                     Cliente = venta.Cliente.Usuario,
                     Producto = venta.Producto.Descripcion,
-                    Cantidad = venta.Producto.Cantidad,
-                    TotalAPagar = venta.TotalApagar()
+                    Cantidad = venta.Unidades,
+                    TotalAPagar = venta.TotalAPagar
                 });
             }
             return ventasDisplay;
         }
 
-        /// <summary>
-        /// Devuelve el total a pagar de una venta
-        /// </summary>
-        /// <returns>double total a pagar por el cliente</returns>
-        public double TotalApagar()
-        {
-            return this.Producto.Precio * this.Unidades;
-        }
         /// <summary>
         /// Carga de prueba de ventas hardcodeados
         /// </summary>
@@ -140,7 +149,7 @@ namespace Entidades
             {
                 testCount++;
                 int salary = rnd.Next(10000, 100000);
-                Venta newVenta = new Venta(Producto.ListaProductos[rnd.Next(0, Producto.ListaProductos.Count)], Empleado.ListaClientes[rnd.Next(0, Empleado.ListaClientes.Count)], rnd.Next(1,2));
+                Venta newVenta = new Venta(Producto.ListaProductos[rnd.Next(0, Producto.ListaProductos.Count)], Core.ListaClientes[rnd.Next(0, Core.ListaClientes.Count)], rnd.Next(1, 2));
                 altaOk = ListaVentas + newVenta;
                 if (!altaOk)
                 {
@@ -150,7 +159,7 @@ namespace Entidades
             return altaOk;
         }
         #region sobrecargas
-        
+
         public string Mostrar()
         {
             return (string)this;
@@ -166,8 +175,8 @@ namespace Entidades
 
             return sb.ToString();
         }
-        
-        
+
+
 
 
         /// <summary>

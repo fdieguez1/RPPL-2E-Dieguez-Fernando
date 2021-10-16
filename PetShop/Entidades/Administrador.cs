@@ -11,8 +11,7 @@ namespace Entidades
     /// </summary>
     public sealed class Administrador : Empleado
     {
-        public static List<Empleado> ListaEmpleados { get; set; }
-        public static int CantidadMaximaEmpleados { get; set; }
+        
 
         bool superAdminPower;
         public bool SuperAdminPower
@@ -33,43 +32,6 @@ namespace Entidades
             set { this.bono = value; }
         }
 
-        static Administrador()
-        {
-            ListaEmpleados = new List<Empleado>();
-            CantidadMaximaEmpleados = 20;
-        }
-        /// <summary>
-        /// Devuelve una lista de empleados, filtrando solo del tipo Empleado
-        /// </summary>
-        /// <returns></returns>
-        public static List<Empleado> ListarEmpleados()
-        {
-            List<Empleado> empleados = new List<Empleado>();
-            foreach(Persona emp in ListaEmpleados)
-            {
-                if(emp is Empleado && !(emp is Administrador))
-                {
-                    empleados.Add((Empleado)emp);
-                }
-            }
-            return empleados;
-        }
-        /// <summary>
-        /// Devuelve una lista de administradores, filtrando solo del tipo Administrador
-        /// </summary>
-        /// <returns></returns>
-        public static List<Administrador> ListarAdministradores()
-        {
-            List<Administrador> admins = new List<Administrador>();
-            foreach (Persona emp in ListaEmpleados)
-            {
-                if (emp is Administrador)
-                {
-                    admins.Add((Administrador)emp);
-                }
-            }
-            return admins;
-        }
         /// <summary>
         /// Constructor de la clase administrador
         /// </summary>
@@ -94,7 +56,7 @@ namespace Entidades
         public static bool CrearAdminPrueba()
         {
             Empleado auxAdmin = new Administrador("Elpe", "Rrito", "Admin", "utnfra2021", 20222222223, 1000000, true, 100000);
-            bool altaOk = Administrador.ListaEmpleados + auxAdmin;
+            bool altaOk = Core.ListaEmpleados + auxAdmin;
             return altaOk;
         }
     }

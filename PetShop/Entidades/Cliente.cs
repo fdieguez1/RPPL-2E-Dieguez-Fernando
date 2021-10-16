@@ -38,7 +38,7 @@ namespace Entidades
                 testCount++;
                 int salary = new Random().Next(10000, 100000);
                 Cliente newEmp = new Cliente($"ClienteTst", $"ApellidoTest", $"User{testCount}", "utnfra2021", 500, 20222222223);
-                altaOk = Empleado.ListaClientes + newEmp;
+                altaOk = Core.ListaClientes + newEmp;
                 if (!altaOk)
                 {
                     break;
@@ -69,7 +69,7 @@ namespace Entidades
         }
 
         #region sobrecargas
-        
+
         /// <summary>
         /// Sobrecarga del operador + para agregar clientes a la lista de clientes
         /// </summary>
@@ -79,7 +79,7 @@ namespace Entidades
         public static bool operator +(List<Cliente> listaClientes, Cliente cliente)
         {
             bool altaOk = false;
-            if (Empleado.CantidadMaximaClientes > listaClientes.Count)
+            if (Core.CantidadMaximaClientes > listaClientes.Count)
             {
                 foreach (Cliente clt in listaClientes)
                 {
@@ -102,15 +102,15 @@ namespace Entidades
         public static bool operator -(List<Cliente> listaClientes, Cliente Cliente)
         {
             bool removeOk = false;
-                foreach (Cliente clt in listaClientes)
+            foreach (Cliente clt in listaClientes)
+            {
+                if (clt == Cliente)
                 {
-                    if (clt == Cliente)
-                    {
-                        listaClientes.Remove(clt);
-                        return true;
-                    }
+                    listaClientes.Remove(clt);
+                    return true;
                 }
-                removeOk = false;
+            }
+            removeOk = false;
             return removeOk;
         }
         /// <summary>

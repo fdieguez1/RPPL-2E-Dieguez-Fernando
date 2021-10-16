@@ -15,7 +15,7 @@ namespace PetShopForms.Vistas.Ventas
 {
     public partial class Editar : Form
     {
-        public VentaDataForm ProductDataForm;
+        public VentaData ProductDataForm;
         public Producto selectedProduct;
         public Editar(int productId)
         {

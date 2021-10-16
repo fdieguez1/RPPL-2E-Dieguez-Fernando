@@ -9,3 +9,15 @@ C:\Users\ferna\source\repos\PPLabo2_FernandoDieguez\PetShop\Entidades\obj\Debug\
 C:\Users\ferna\source\repos\PPLabo2_FernandoDieguez\PetShop\Entidades\obj\Debug\net5.0\Entidades.dll
 C:\Users\ferna\source\repos\PPLabo2_FernandoDieguez\PetShop\Entidades\obj\Debug\net5.0\ref\Entidades.dll
 C:\Users\ferna\source\repos\PPLabo2_FernandoDieguez\PetShop\Entidades\obj\Debug\net5.0\Entidades.pdb
+C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\Entidades\obj\Debug\net5.0\Entidades.csproj.AssemblyReference.cache
+C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\Entidades\obj\Debug\net5.0\Entidades.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\Entidades\obj\Debug\net5.0\Entidades.AssemblyInfoInputs.cache
+C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\Entidades\obj\Debug\net5.0\Entidades.AssemblyInfo.cs
+C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\Entidades\obj\Debug\net5.0\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\Entidades\obj\Debug\net5.0\Entidades.dll
+C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\Entidades\obj\Debug\net5.0\ref\Entidades.dll
+C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\Entidades\obj\Debug\net5.0\Entidades.pdb
+C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\Entidades\bin\Debug\net5.0\Entidades.deps.json
+C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\Entidades\bin\Debug\net5.0\Entidades.dll
+C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\Entidades\bin\Debug\net5.0\ref\Entidades.dll
+C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\Entidades\bin\Debug\net5.0\Entidades.pdb

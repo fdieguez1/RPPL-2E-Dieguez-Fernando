@@ -55,13 +55,13 @@ namespace PetShopForms.Vistas.Empleados
                 string userType = "";
                 if (isAdmin) {
                     Administrador auxAdmin = new Administrador(nombre, apellido, usuario, contrasenia, cuil, sueldo, isSuperAdmin, bono);
-                    altaOk = Administrador.ListaEmpleados + auxAdmin;
+                    altaOk = Core.ListaEmpleados + auxAdmin;
                     userType = auxAdmin.GetType().ToString();
                 }
                 else
                 {
                     Empleado auxEmpleado = new Empleado(nombre, apellido, usuario, contrasenia, cuil, sueldo);
-                    altaOk = Administrador.ListaEmpleados + auxEmpleado;
+                    altaOk = Core.ListaEmpleados + auxEmpleado;
                     userType = auxEmpleado.GetType().ToString();
                 }
                 userType = userType.Split('.')[1];

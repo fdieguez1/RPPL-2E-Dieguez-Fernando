@@ -63,9 +63,6 @@
     <Compile Update="Vistas\Ventas\Listado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Vistas\Ventas\VentaDataForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>

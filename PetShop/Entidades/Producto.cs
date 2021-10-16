@@ -38,9 +38,9 @@ namespace Entidades
         {
             get
             {
-                foreach(Producto prod in ListaProductos)
+                foreach (Producto prod in ListaProductos)
                 {
-                    if(prod.id == id)
+                    if (prod.id == id)
                     {
                         return prod;
                     }
@@ -102,7 +102,7 @@ namespace Entidades
             {
                 testCount++;
                 int salary = rnd.Next(10000, 100000);
-                Producto newProducto = new Producto($"producto{testCount}", (ETipoProducto)rnd.Next(0,3), rnd.Next(100,500), rnd.Next(5,20));
+                Producto newProducto = new Producto($"producto{testCount}", (ETipoProducto)rnd.Next(0, 3), rnd.Next(100, 500), rnd.Next(5, 20));
                 altaOk = ListaProductos + newProducto;
                 if (!altaOk)
                 {
@@ -128,7 +128,7 @@ namespace Entidades
             this.descripcion = descripcion;
         }
         #region sobrecargas operadores
-        
+
         /// <summary>
         /// Sobrecarga del metodo + para agregar una carga de producto al listado de productos
         /// </summary>

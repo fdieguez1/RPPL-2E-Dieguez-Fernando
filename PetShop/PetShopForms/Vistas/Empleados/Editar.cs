@@ -20,7 +20,7 @@ namespace PetShopForms.Vistas.Empleados
         public Editar(int empleadoId)
         {
             InitializeComponent();
-            foreach (Empleado emp in Administrador.ListaEmpleados)
+            foreach (Empleado emp in Core.ListaEmpleados)
             {
                 if (emp.Id == empleadoId)
                 {
@@ -63,11 +63,11 @@ namespace PetShopForms.Vistas.Empleados
             {
                 Empleado auxEmpleado = new Empleado(nombre, apellido, usuario, contrasenia, cuil, sueldo);
                 auxEmpleado.Id = selectedEmpleado.Id;
-                for (int i = 0; i < Administrador.ListaEmpleados.Count; i++)
+                for (int i = 0; i < Core.ListaEmpleados.Count; i++)
                 {
-                    if (Administrador.ListaEmpleados[i] == selectedEmpleado)
+                    if (Core.ListaEmpleados[i] == selectedEmpleado)
                     {
-                        Administrador.ListaEmpleados[i] = auxEmpleado;
+                        Core.ListaEmpleados[i] = auxEmpleado;
                         MessageBox.Show("Empleado editado con exito",
                                     "Operacion exitosa",
                                     MessageBoxButtons.OK);

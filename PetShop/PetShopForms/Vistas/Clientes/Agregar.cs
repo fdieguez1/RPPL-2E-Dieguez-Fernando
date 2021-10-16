@@ -46,7 +46,7 @@ namespace PetShopForms.Vistas.Clientes
             else
             {
                 Cliente auxCliente = new Cliente(nombre, apellido, usuario, contrasenia, saldo, cuil);
-                bool altaOk = Entidades.Empleado.ListaClientes + auxCliente;
+                bool altaOk = Core.ListaClientes + auxCliente;
                 if (altaOk)
                 {
                     MessageBox.Show("Alta de cliente exitosa",
