@@ -72,6 +72,7 @@ namespace PetShopForms
             menu.Show();
             lblWelcome.Text = $"Bienvenido, {Persona.UsuarioLogueado.NombreCompleto}";
             lblUserType.Text = Persona.UsuarioLogueado is Administrador ? "Administrador" : "Empleado";
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
         }
         /// <summary>
         /// Metodo que se ocupa de cambiar contenido del paner principal del form Inicio con una instancia de un form dada, limpia el control y luego agrega la nueva vista

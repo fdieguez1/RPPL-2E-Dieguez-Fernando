@@ -73,6 +73,7 @@ namespace PetShopForms.Vistas.Clientes
             this.dgvClientes.MultiSelect = false;
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.RowTemplate.Height = 25;
+            this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.Size = new System.Drawing.Size(593, 352);
             this.dgvClientes.TabIndex = 1;
             // 

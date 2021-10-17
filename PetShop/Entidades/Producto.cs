@@ -138,7 +138,7 @@ namespace Entidades
             {
                 testCount++;
                 int salary = rnd.Next(10000, 100000);
-                Producto newProducto = new Producto($"producto{testCount}", (ETipoProducto)rnd.Next(0, 3), rnd.Next(100, 500), rnd.Next(5, 20));
+                Producto newProducto = new Producto($"producto{testCount}", (ETipoProducto)rnd.Next(0, 3), rnd.Next(100, 500), rnd.Next(5, 20), rnd.Next(100,500));
                 altaOk = ListaProductos + newProducto;
                 if (!altaOk)
                 {
@@ -157,14 +157,15 @@ namespace Entidades
         /// <param name="tipo">ETipoProducto Enumerado, de valores predefinidos, con el valor a ser asignado</param>
         /// <param name="precio">Precio del producto por unidad</param>
         /// <param name="cantidad">Cantidad de productos en existencia</param>
-        public Producto(string descripcion, ETipoProducto tipo, double precio, int cantidad)
+        public Producto(string descripcion, ETipoProducto tipo, double precio, int cantidad, float peso)
         {
             this.Id = ++PrevId;
             PrevId = this.Id;
             this.TipoProducto = tipo;
             this.Precio = precio;
             this.Cantidad = cantidad;
-            this.descripcion = descripcion;
+            this.Descripcion = descripcion;
+            this.Peso = peso;
         }
         #region sobrecargas operadores
 
@@ -230,6 +231,10 @@ namespace Entidades
         /// <returns>devuelve true si son diferentes, false si no lo son</returns>
         public static bool operator !=(Producto Producto1, Producto Producto2)
         {
+            if(Producto2 == null)
+            {
+                return false;
+            }
             return !(Producto1 == Producto2);
         }
         #endregion

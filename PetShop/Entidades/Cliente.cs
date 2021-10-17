@@ -75,7 +75,7 @@ namespace Entidades
         /// <returns>Cliente encontrado si fue exitoso, null si no logro encontrar un cliente</returns>
         public static Cliente BuscarPorId(int id)
         {
-            foreach(Cliente item in Core.ListaClientes)
+            foreach (Cliente item in Core.ListaClientes)
             {
                 if (item.Id == id)
                 {
@@ -97,18 +97,15 @@ namespace Entidades
         public static bool operator +(List<Cliente> listaClientes, Cliente cliente)
         {
             bool altaOk = false;
-            if (Core.CantidadMaximaClientes > listaClientes.Count)
+            foreach (Cliente clt in listaClientes)
             {
-                foreach (Cliente clt in listaClientes)
+                if (clt == cliente)
                 {
-                    if (clt == cliente)
-                    {
-                        return false;
-                    }
+                    return false;
                 }
-                listaClientes.Add(cliente);
-                altaOk = true;
             }
+            listaClientes.Add(cliente);
+            altaOk = true;
             return altaOk;
         }
         /// <summary>

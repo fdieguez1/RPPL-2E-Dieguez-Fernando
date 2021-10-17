@@ -22,6 +22,7 @@ namespace PetShopForms.Vistas.Clientes
 
         private void Agregar_Load(object sender, EventArgs e)
         {
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             PersonaDataForm = (PersonaData)Inicio.AddFormToControl(pFullContainer.Controls, new Persona.PersonaData());
         }
 

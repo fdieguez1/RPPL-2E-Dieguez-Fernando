@@ -130,7 +130,7 @@ namespace Entidades
         }
 
         /// <summary>
-        /// Metodo virtual para poderse sobrecargar, utiliza el stringbuilder para mostrar en dos lineas el contenido de la clase Persona
+        /// Metodo virtual para poder ser sobreescrito, utiliza el stringbuilder para mostrar en dos lineas el contenido de la clase Persona
         /// </summary>
         /// <returns>Devuelve la cadena de string con formato</returns>
         public virtual string Mostrar()
@@ -158,6 +158,5 @@ namespace Entidades
             }
             return null;
         }
-
     }
 }

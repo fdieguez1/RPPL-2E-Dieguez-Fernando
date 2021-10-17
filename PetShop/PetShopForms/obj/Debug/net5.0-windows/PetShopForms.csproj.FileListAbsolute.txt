@@ -73,5 +73,4 @@ C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\De
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.Vistas.Persona.PersonaData.resources
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.Vistas.Productos.Agregar.resources
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.Vistas.Productos.Editar.resources
-C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.csproj.CopyComplete
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.Vistas.Empleados.Editar.resources

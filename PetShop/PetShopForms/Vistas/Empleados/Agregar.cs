@@ -16,6 +16,12 @@ namespace PetShopForms.Vistas.Empleados
     {
         public PersonaData PersonaDataForm;
         public EmpleadoData EmpleadoDataForm;
+        string usuario, contrasenia, nombre, apellido;
+        double sueldo, cuil, bono;
+        bool isAdmin, isSuperAdmin;
+        bool altaOk = false;
+        string userType = "";
+
         public Agregar()
         {
             InitializeComponent();
@@ -23,15 +29,14 @@ namespace PetShopForms.Vistas.Empleados
 
         private void Agregar_Load(object sender, EventArgs e)
         {
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             EmpleadoDataForm = (EmpleadoData)Inicio.AddFormToControl(pFullContainer.Controls, new EmpleadoData());
             PersonaDataForm = (PersonaData)Inicio.AddFormToControl(pFullContainer.Controls, new Persona.PersonaData());
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            string usuario, contrasenia, nombre, apellido;
-            double sueldo, cuil, bono;
-            bool isAdmin, isSuperAdmin;
+
             usuario = PersonaDataForm.Usuario;
             contrasenia = PersonaDataForm.Contrasenia;
             cuil = PersonaDataForm.Cuil;
@@ -51,9 +56,8 @@ namespace PetShopForms.Vistas.Empleados
             }
             else
             {
-                bool altaOk = false;
-                string userType = "";
-                if (isAdmin) {
+                if (isAdmin)
+                {
                     Administrador auxAdmin = new Administrador(nombre, apellido, usuario, contrasenia, cuil, sueldo, isSuperAdmin, bono);
                     altaOk = Core.ListaEmpleados + auxAdmin;
                     userType = auxAdmin.GetType().ToString();

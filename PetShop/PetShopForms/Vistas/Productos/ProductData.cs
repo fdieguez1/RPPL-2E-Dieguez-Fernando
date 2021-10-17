@@ -18,6 +18,7 @@ namespace PetShopForms.Vistas.Productos
         int cantidad;
         double precio;
         string descripcion;
+        float peso;
         public ETipoProducto TipoProd
         {
             get
@@ -52,6 +53,18 @@ namespace PetShopForms.Vistas.Productos
             {
                 this.txtPrecio.Text = value.ToString();
                 this.precio = value;
+            }
+        }
+        public float Peso
+        {
+            get
+            {
+                return this.peso;
+            }
+            set
+            {
+                this.txtPeso.Text = value.ToString();
+                this.peso = value;
             }
         }
         public string Descripcion
@@ -117,6 +130,22 @@ namespace PetShopForms.Vistas.Productos
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             this.Descripcion = this.txtDescripcion.Text;
+        }
+
+        private void txtPeso_TextChanged(object sender, EventArgs e)
+        {
+            if (this.txtPeso.Text.Length > 0)
+            {
+                if (Validaciones.ValidarDouble(this.txtPeso.Text))
+                    this.Cantidad = int.Parse(this.txtPeso.Text);
+                else
+                {
+                    this.txtPeso.Text = string.Empty;
+                    MessageBox.Show("Solo estan permitidos numeros",
+                                         "Error",
+                                         MessageBoxButtons.OK);
+                }
+            }
         }
     }
 }

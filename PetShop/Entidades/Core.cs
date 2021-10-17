@@ -9,22 +9,17 @@ namespace Entidades
     public static class Core
     {
         public static List<Empleado> ListaEmpleados { get; set; }
-        public static int CantidadMaximaEmpleados { get; set; }
         static List<Cliente> listaClientes;
         public static List<Cliente> ListaClientes
         {
             get { return listaClientes; }
             set { listaClientes = value; }
         }
-        public static int CantidadMaximaClientes { get; set; }
-
 
         static Core()
         {
             ListaEmpleados = new List<Empleado>();
-            CantidadMaximaEmpleados = 20;
             ListaClientes = new List<Cliente>();
-            CantidadMaximaClientes = 20;
         }
         /// <summary>
         /// Devuelve una lista de administradores, filtrando solo del tipo Administrador
@@ -35,7 +30,7 @@ namespace Entidades
             List<Administrador> admins = new List<Administrador>();
             foreach (Persona emp in Core.ListaEmpleados)
             {
-                if (emp is Administrador)
+                if (emp.EsAdmin())
                 {
                     admins.Add((Administrador)emp);
                 }
@@ -52,12 +47,46 @@ namespace Entidades
             List<Empleado> empleados = new List<Empleado>();
             foreach (Persona emp in Core.ListaEmpleados)
             {
-                if (emp is Empleado && !(emp is Administrador))
+                if (emp.EsEmpleado())
                 {
                     empleados.Add((Empleado)emp);
                 }
             }
             return empleados;
+        }
+
+        /// <summary>
+        /// Metodo de extension, recibe una persona y devuelve si es administrador
+        /// </summary>
+        /// <param name="persona">persona a evaluar</param>
+        /// <returns>true si es admin, false si no lo es</returns>
+        public static bool EsAdmin(this Persona persona)
+        {
+            if (persona is Administrador)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Metodo de extension, recibe una persona y devuelve si solo es empleado
+        /// </summary>
+        /// <param name="persona">persona a evaluar</param>
+        /// <returns>true si es empleado, false si no lo es</returns>
+        public static bool EsEmpleado(this Persona persona)
+        {
+            if (persona is Empleado && !(persona is Administrador))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

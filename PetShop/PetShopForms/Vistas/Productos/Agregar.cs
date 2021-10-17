@@ -16,6 +16,11 @@ namespace PetShopForms.Vistas.Productos
     public partial class Agregar : Form
     {
         public ProductData ProductDataForm;
+        ETipoProducto tipoProd;
+        double precio;
+        int cantidad;
+        string descripcion;
+        float peso;
         public Agregar()
         {
             InitializeComponent();
@@ -23,19 +28,18 @@ namespace PetShopForms.Vistas.Productos
 
         private void Agregar_Load(object sender, EventArgs e)
         {
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             ProductDataForm = (ProductData)Inicio.AddFormToControl(pFullContainer.Controls, new ProductData());
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            ETipoProducto tipoProd;
-            double precio;
-            int cantidad;
-            string descripcion;
+            
             cantidad = ProductDataForm.Cantidad;
             tipoProd = ProductDataForm.TipoProd;
             precio = ProductDataForm.Precio;
             descripcion = ProductDataForm.Descripcion;
+            peso = ProductDataForm.Peso;
 
             if (string.IsNullOrEmpty(descripcion) || precio < 1 || cantidad < 1)
             {
@@ -45,7 +49,7 @@ namespace PetShopForms.Vistas.Productos
             }
             else
             {
-                Producto auxProducto = new Producto(descripcion, tipoProd, precio, cantidad);
+                Producto auxProducto = new Producto(descripcion, tipoProd, precio, cantidad, peso);
                 bool altaOk = Producto.ListaProductos + auxProducto;
                 if (altaOk)
                 {

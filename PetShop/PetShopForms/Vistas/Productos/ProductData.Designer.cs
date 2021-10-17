@@ -38,6 +38,8 @@ namespace PetShopForms.Vistas.Productos
             this.label2 = new System.Windows.Forms.Label();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblPeso = new System.Windows.Forms.Label();
+            this.txtPeso = new System.Windows.Forms.TextBox();
             this.pPersonaPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +59,7 @@ namespace PetShopForms.Vistas.Productos
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCantidad.Location = new System.Drawing.Point(0, 123);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(309, 23);
+            this.txtCantidad.Size = new System.Drawing.Size(252, 23);
             this.txtCantidad.TabIndex = 3;
             this.txtCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
             // 
@@ -67,7 +69,7 @@ namespace PetShopForms.Vistas.Productos
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPrecio.Location = new System.Drawing.Point(0, 76);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(309, 23);
+            this.txtPrecio.Size = new System.Drawing.Size(252, 23);
             this.txtPrecio.TabIndex = 2;
             this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
             // 
@@ -94,7 +96,7 @@ namespace PetShopForms.Vistas.Productos
             this.pPersonaPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.pPersonaPanel.Location = new System.Drawing.Point(0, 0);
             this.pPersonaPanel.Name = "pPersonaPanel";
-            this.pPersonaPanel.Size = new System.Drawing.Size(321, 244);
+            this.pPersonaPanel.Size = new System.Drawing.Size(264, 244);
             this.pPersonaPanel.TabIndex = 1;
             // 
             // txtDescripcion
@@ -103,7 +105,7 @@ namespace PetShopForms.Vistas.Productos
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescripcion.Location = new System.Drawing.Point(0, 28);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(309, 23);
+            this.txtDescripcion.Size = new System.Drawing.Size(252, 23);
             this.txtDescripcion.TabIndex = 1;
             this.txtDescripcion.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -125,7 +127,7 @@ namespace PetShopForms.Vistas.Productos
             this.cmbTipo.FormattingEnabled = true;
             this.cmbTipo.Location = new System.Drawing.Point(0, 171);
             this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(309, 23);
+            this.cmbTipo.Size = new System.Drawing.Size(252, 23);
             this.cmbTipo.TabIndex = 4;
             // 
             // label1
@@ -138,11 +140,33 @@ namespace PetShopForms.Vistas.Productos
             this.label1.TabIndex = 8;
             this.label1.Text = "Tipo";
             // 
+            // lblPeso
+            // 
+            this.lblPeso.AutoSize = true;
+            this.lblPeso.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPeso.Location = new System.Drawing.Point(0, 247);
+            this.lblPeso.Name = "lblPeso";
+            this.lblPeso.Size = new System.Drawing.Size(56, 14);
+            this.lblPeso.TabIndex = 12;
+            this.lblPeso.Text = "Peso (gr)";
+            // 
+            // txtPeso
+            // 
+            this.txtPeso.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPeso.Location = new System.Drawing.Point(0, 264);
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.Size = new System.Drawing.Size(252, 23);
+            this.txtPeso.TabIndex = 11;
+            this.txtPeso.TextChanged += new System.EventHandler(this.txtPeso_TextChanged);
+            // 
             // ProductData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(321, 249);
+            this.ClientSize = new System.Drawing.Size(264, 306);
+            this.Controls.Add(this.lblPeso);
+            this.Controls.Add(this.txtPeso);
             this.Controls.Add(this.pPersonaPanel);
             this.Name = "ProductData";
             this.Text = "Agregar";
@@ -150,6 +174,7 @@ namespace PetShopForms.Vistas.Productos
             this.pPersonaPanel.ResumeLayout(false);
             this.pPersonaPanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -163,5 +188,7 @@ namespace PetShopForms.Vistas.Productos
         private System.Windows.Forms.ComboBox cmbTipo;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblPeso;
+        private System.Windows.Forms.TextBox txtPeso;
     }
 }

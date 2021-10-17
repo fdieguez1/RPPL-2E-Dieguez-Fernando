@@ -9,9 +9,11 @@ namespace Entidades
     /// <summary>
     /// Clase sellada Administrador, que no permite herencia, hereda los atributos de empleado y posee permisos especiales. Es la contenedora de la lista de empleados
     /// </summary>
+#pragma warning disable CS0661 
     public sealed class Administrador : Empleado
+#pragma warning restore CS0661 
     {
-        
+
 
         bool superAdminPower;
         public bool SuperAdminPower
@@ -43,10 +45,17 @@ namespace Entidades
         /// <param name="sueldo">double sueldo a asignar</param>
         /// <param name="superAdminPower">bool permiso a asignar</param>
         /// <param name="bono">double bono a asignar</param>
-        public Administrador(string nombre, string apellido, string usuario, string contrasenia, double cuil, double sueldo, bool superAdminPower, double bono) : base(nombre, apellido, usuario, contrasenia, cuil, sueldo)
+        public Administrador(string nombre, string apellido, string usuario, string contrasenia, double cuil,
+            double sueldo, bool superAdminPower, double bono) : base(nombre, apellido, usuario, contrasenia, cuil, sueldo)
         {
             this.SuperAdminPower = superAdminPower;
             this.Bono = bono;
+        }
+
+        protected override void AumentarSueldo(float porcentaje)
+        {
+            base.AumentarSueldo(porcentaje);
+            this.Bono += this.Bono * porcentaje / 100;
         }
 
         /// <summary>
@@ -59,5 +68,70 @@ namespace Entidades
             bool altaOk = Core.ListaEmpleados + auxAdmin;
             return altaOk;
         }
+
+        /// <summary>
+        /// Sobrecarga del metodo + para cargar un administrador a la lista de administradors
+        /// </summary>
+        /// <param name="listaEmpleados">lista objetivo</param>
+        /// <param name="administrador">administrador a cargar</param>
+        /// <returns></returns>
+        public static bool operator +(List<Administrador> listaEmpleados, Administrador administrador)
+        {
+            bool altaOk = false;
+            foreach (Administrador admin in listaEmpleados)
+            {
+                if (admin == administrador)
+                {
+                    return false;
+                }
+            }
+            listaEmpleados.Add(administrador);
+            altaOk = true;
+            return altaOk;
+        }
+        /// <summary>
+        /// Sobrecarga del metodo - para eliminar un administrador de la lista de administradors
+        /// </summary>
+        /// <param name="listaEmpleados">lista objetivo</param>
+        /// <param name="administrador">administrador a eliminar</param>
+        /// <returns>devuelve true si logro eliminarlo, false si no lo logro</returns>
+        public static bool operator -(List<Administrador> listaEmpleados, Administrador administrador)
+        {
+            bool removeOk = false;
+            foreach (Administrador emp in listaEmpleados)
+            {
+                if (emp == administrador)
+                {
+                    listaEmpleados.Remove(emp);
+                    return true;
+                }
+            }
+            return removeOk;
+        }
+        /// <summary>
+        /// Sobrecarga del metodo == para comparar si dos administradors son iguales en sus usuarios
+        /// </summary>
+        /// <param name="administrador1">primer administrador a evaluar</param>
+        /// <param name="administrador2">segundo administrador a evaluar</param>
+        /// <returns>devuelve true si son iguales sus usuarios, false si no lo son</returns>
+        public static bool operator ==(Administrador administrador1, Administrador administrador2)
+        {
+            if (administrador1.Usuario == administrador2.Usuario)
+            {
+                return true;
+            }
+            return false;
+        }
+        /// <summary>
+        /// Sobrecar del metodo != para evaluar si dos administradors son distintos en sus usuarios
+        /// </summary>
+        /// <param name="administrador1">primer administrador a evaluar</param>
+        /// <param name="administrador2">segundo administrador a evaluar</param>
+        /// <returns>devuelve true si son distintos sus usuarios, false si no lo son</returns>
+        public static bool operator !=(Administrador administrador1, Administrador administrador2)
+        {
+            return !(administrador1 == administrador2);
+        }
+
     }
 }

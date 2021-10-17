@@ -23,6 +23,7 @@ namespace PetShopForms.Vistas.Ventas
 
         private void Agregar_Load(object sender, EventArgs e)
         {
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             //VentaData newMDIChild = new VentaData();
             //this.IsMdiContainer = true;
             //newMDIChild.Dock = DockStyle.Fill;
@@ -34,7 +35,7 @@ namespace PetShopForms.Vistas.Ventas
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (ventaDataForm.ProductoSeleccionado != null && ventaDataForm.ClienteSeleccionado != null && ventaDataForm.Unidades > 0)
+            if (ventaDataForm.Unidades > 0)
             {
                 //Todo completo
             }

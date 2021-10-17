@@ -60,6 +60,12 @@ namespace Entidades
             return altaOk;
         }
 
+        protected virtual void AumentarSueldo(float porcentaje)
+        {
+            this.Sueldo += this.Sueldo * porcentaje / 100;
+        }
+
+
         /// <summary>
         /// Carga de prueba de empleados hardcodeados
         /// </summary>
@@ -116,17 +122,13 @@ namespace Entidades
         public static bool operator -(List<Empleado> listaEmpleados, Empleado empleado)
         {
             bool removeOk = false;
-            if (Core.CantidadMaximaEmpleados > listaEmpleados.Count)
+            foreach (Empleado emp in listaEmpleados)
             {
-                foreach (Empleado emp in listaEmpleados)
+                if (emp == empleado)
                 {
-                    if (emp == empleado)
-                    {
-                        listaEmpleados.Remove(emp);
-                        return true;
-                    }
+                    listaEmpleados.Remove(emp);
+                    return true;
                 }
-                removeOk = false;
             }
             return removeOk;
         }

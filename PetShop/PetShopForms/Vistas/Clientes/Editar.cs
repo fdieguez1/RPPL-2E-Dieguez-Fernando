@@ -14,6 +14,9 @@ namespace PetShopForms.Vistas.Clientes
 {
     public partial class Editar : Form
     {
+        string usuario, contrasenia, nombre, apellido;
+        double saldo, cuil;
+
         public PersonaData PersonaDataForm;
         public Cliente selectedCliente;
         public Editar(Cliente cliente)
@@ -24,20 +27,18 @@ namespace PetShopForms.Vistas.Clientes
 
         private void Editar_Load(object sender, EventArgs e)
         {
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             PersonaDataForm = (PersonaData)Inicio.AddFormToControl(pFullContainer.Controls, new Persona.PersonaData());
             this.txtSaldo.Text = selectedCliente.Saldo.ToString();
             PersonaDataForm.Nombre = selectedCliente.Nombre;
             PersonaDataForm.Apellido = selectedCliente.Apellido;
             PersonaDataForm.Cuil = selectedCliente.Cuil;
-            PersonaDataForm.Usuario= selectedCliente.Usuario;
-            PersonaDataForm.Contrasenia= selectedCliente.Contrasenia;
+            PersonaDataForm.Usuario = selectedCliente.Usuario;
+            PersonaDataForm.Contrasenia = selectedCliente.Contrasenia;
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            string usuario, contrasenia, nombre, apellido;
-            double saldo, cuil;
-
             usuario = PersonaDataForm.Usuario;
             contrasenia = PersonaDataForm.Contrasenia;
             cuil = PersonaDataForm.Cuil;
@@ -53,7 +54,7 @@ namespace PetShopForms.Vistas.Clientes
             }
             else
             {
-                Cliente  auxCliente = new Cliente(nombre, apellido, usuario, contrasenia, saldo, cuil);
+                Cliente auxCliente = new Cliente(nombre, apellido, usuario, contrasenia, saldo, cuil);
                 auxCliente.Id = selectedCliente.Id;
                 for (int i = 0; i < Core.ListaClientes.Count; i++)
                 {

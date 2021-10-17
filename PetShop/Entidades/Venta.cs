@@ -191,7 +191,8 @@ namespace Entidades
             {
                 testCount++;
                 int salary = rnd.Next(10000, 100000);
-                Venta newVenta = new Venta(Producto.ListaProductos[rnd.Next(0, Producto.ListaProductos.Count)], Core.ListaClientes[rnd.Next(0, Core.ListaClientes.Count)], rnd.Next(1, 2));
+                Venta newVenta = new Venta(Producto.ListaProductos[rnd.Next(0, Producto.ListaProductos.Count)], Core.ListaClientes[rnd.Next(0, Core.ListaClientes.Count)], rnd.Next(1, 2)
+                    , rnd.Next(10) > 5 ? ETipoEnvio.Moto : ETipoEnvio.MiniFlete);
                 altaOk = ListaVentas + newVenta;
                 if (!altaOk)
                 {

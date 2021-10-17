@@ -107,7 +107,7 @@ namespace PetShopForms.Vistas.Ventas
 
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            ProductoSeleccionado = (Producto)dgvClientes.CurrentRow.DataBoundItem;
+            ProductoSeleccionado = (Producto)dgvProductos.CurrentRow.DataBoundItem;
 
         }
 

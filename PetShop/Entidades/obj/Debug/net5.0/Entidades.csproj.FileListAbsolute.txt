@@ -20,4 +20,3 @@ C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\Entidades\bin\Debug
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\Entidades\bin\Debug\net5.0\Entidades.dll
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\Entidades\bin\Debug\net5.0\ref\Entidades.dll
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\Entidades\bin\Debug\net5.0\Entidades.pdb
-C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\Entidades\obj\Debug\net5.0\Entidades.csproj.AssemblyReference.cache

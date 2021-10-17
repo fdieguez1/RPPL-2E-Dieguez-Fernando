@@ -52,7 +52,7 @@ namespace PetShopForms.Vistas.Administradores
             {
                 int selectedRowIndex = this.dgvAdmins.SelectedCells[0].RowIndex;
                 int selectedId = (int)dgvAdmins.Rows[selectedRowIndex].Cells["Id"].Value;
-                if (MessageBox.Show($"Seguro que desea eliminar el empleado de id: {selectedId}?",
+                if (MessageBox.Show($"Seguro que desea eliminar el administrador de id: {selectedId}?",
                                          "Confirmacion",
                                          MessageBoxButtons.YesNo) == DialogResult.No)
                 {
@@ -60,13 +60,13 @@ namespace PetShopForms.Vistas.Administradores
                 }
                 else
                 {
-                    foreach (Empleado emp in Core.ListaEmpleados)
+                    foreach (Administrador admin in Core.ListarAdministradores())
                     {
-                        if (emp.Id == selectedId)
+                        if (admin.Id == selectedId)
                         {
-                            if (Core.ListaEmpleados - emp)
+                            if (Core.ListarAdministradores() - admin)
                             {
-                                MessageBox.Show("Empleado eliminado",
+                                MessageBox.Show("administrador eliminado",
                                          "Operacion exitosa",
                                          MessageBoxButtons.OK);
 
@@ -74,7 +74,7 @@ namespace PetShopForms.Vistas.Administradores
                             }
                             else
                             {
-                                MessageBox.Show("Empleado no eliminado",
+                                MessageBox.Show("administrador no eliminado",
                                            "Error",
                                            MessageBoxButtons.OK);
                                 break;

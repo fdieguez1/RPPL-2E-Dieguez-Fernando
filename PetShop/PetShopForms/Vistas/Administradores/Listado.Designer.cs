@@ -45,7 +45,7 @@ namespace PetShopForms.Vistas.Administradores
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(543, 37);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Listado de Empleados";
+            this.label1.Text = "Listado de Administradores";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvAdmins
@@ -72,6 +72,7 @@ namespace PetShopForms.Vistas.Administradores
             this.dgvAdmins.MultiSelect = false;
             this.dgvAdmins.Name = "dgvAdmins";
             this.dgvAdmins.RowTemplate.Height = 25;
+            this.dgvAdmins.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAdmins.Size = new System.Drawing.Size(543, 375);
             this.dgvAdmins.TabIndex = 1;
             // 
