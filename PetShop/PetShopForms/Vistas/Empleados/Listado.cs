@@ -21,6 +21,7 @@ namespace PetShopForms.Vistas.Empleados
         private void Listado_Load(object sender, EventArgs e)
         {
             CargarEmpleados();
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -37,9 +38,7 @@ namespace PetShopForms.Vistas.Empleados
         {
             if (this.dgvEmpleados.SelectedCells.Count > 0)
             {
-                int selectedRowIndex = this.dgvEmpleados.SelectedCells[0].RowIndex;
-                int selectedId = (int)dgvEmpleados.Rows[selectedRowIndex].Cells["Id"].Value;
-                Form form = new Editar(selectedId);
+                Form form = new Editar((Empleado)dgvEmpleados.CurrentRow.DataBoundItem);
                 DialogResult dialogRes = form.ShowDialog();
                 if (dialogRes != DialogResult.None)
                 {

@@ -68,6 +68,24 @@ namespace Entidades
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Obtiene un cliente dado un id, 
+        /// </summary>
+        /// <param name="id">id a buscar</param>
+        /// <returns>Cliente encontrado si fue exitoso, null si no logro encontrar un cliente</returns>
+        public static Cliente BuscarPorId(int id)
+        {
+            foreach(Cliente item in Core.ListaClientes)
+            {
+                if (item.Id == id)
+                {
+                    return item;
+                }
+            }
+            //Not found exception -> TO DO
+            return null;
+        }
+
         #region sobrecargas
 
         /// <summary>

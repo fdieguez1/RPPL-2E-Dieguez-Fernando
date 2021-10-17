@@ -33,7 +33,6 @@ namespace PetShopForms.Vistas.Ventas
             this.label1 = new System.Windows.Forms.Label();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +42,7 @@ namespace PetShopForms.Vistas.Ventas
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(535, 40);
+            this.label1.Size = new System.Drawing.Size(535, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Listado de Ventas";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -81,35 +80,22 @@ namespace PetShopForms.Vistas.Ventas
             this.btnAdd.BackColor = System.Drawing.Color.SlateBlue;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(0, 43);
+            this.btnAdd.Location = new System.Drawing.Point(0, 32);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 21);
+            this.btnAdd.Size = new System.Drawing.Size(75, 32);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "+ Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.BackColor = System.Drawing.Color.SlateBlue;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(81, 43);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 21);
-            this.btnEdit.TabIndex = 3;
-            this.btnEdit.Text = "Editar";
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.SlateBlue;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(162, 43);
+            this.btnDelete.Location = new System.Drawing.Point(81, 32);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 21);
+            this.btnDelete.Size = new System.Drawing.Size(75, 32);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Eliminar";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -121,7 +107,6 @@ namespace PetShopForms.Vistas.Ventas
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(535, 420);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.label1);
@@ -139,7 +124,6 @@ namespace PetShopForms.Vistas.Ventas
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
     }
 }

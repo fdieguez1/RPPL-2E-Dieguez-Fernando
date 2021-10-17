@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,11 +44,11 @@ namespace Entidades
         /// <param name="cliente">cliente que realiza la compra</param>
         /// <param name="producto">producto vendido</param>
         /// <returns>devuelve true si logro la venta, false si fallo</returns>
-        protected bool Vender(Producto producto, Cliente cliente, int unidades)
+        protected bool Vender(Producto producto, Cliente cliente, int unidades, ETipoEnvio tipoEnvio)
         {
-            Venta auxVenta = new Venta(producto, cliente, unidades);
+            Venta auxVenta = new Venta(producto, cliente, unidades, tipoEnvio);
             bool altaOk = false;
-            if (cliente.Saldo >= producto.Precio && producto.Cantidad > 0)
+            if (cliente.Saldo >= auxVenta.TotalAPagar && producto.Cantidad > 0 && producto.Cantidad >= unidades)
             {
                 cliente.Saldo -= producto.Precio;
                 if (producto.Cantidad > unidades)

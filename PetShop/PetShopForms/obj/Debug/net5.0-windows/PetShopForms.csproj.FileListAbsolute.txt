@@ -48,7 +48,6 @@ C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\De
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.Vistas.Productos.Listado.resources
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.Vistas.Productos.ProductData.resources
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.Vistas.Ventas.Agregar.resources
-C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.Vistas.Ventas.Editar.resources
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.Vistas.Ventas.Listado.resources
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.Vistas.Ventas.VentaData.resources
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.csproj.GenerateResource.cache
@@ -68,5 +67,11 @@ C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\bin\De
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\bin\Debug\net5.0-windows\PetShopForms.pdb
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\bin\Debug\net5.0-windows\Entidades.dll
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\bin\Debug\net5.0-windows\Entidades.pdb
-C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.csproj.CopyComplete
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.genruntimeconfig.cache
+C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.Vistas.Clientes.Listado.resources
+C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.Vistas.Empleados.Agregar.resources
+C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.Vistas.Persona.PersonaData.resources
+C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.Vistas.Productos.Agregar.resources
+C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.Vistas.Productos.Editar.resources
+C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.csproj.CopyComplete
+C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.Vistas.Empleados.Editar.resources

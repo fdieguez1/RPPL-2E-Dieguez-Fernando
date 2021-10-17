@@ -23,9 +23,10 @@ namespace PetShopForms.Vistas.Ventas
 
         private void Agregar_Load(object sender, EventArgs e)
         {
-            //VentaDataForm newMDIChild = new VentaDataForm();
+            //VentaData newMDIChild = new VentaData();
             //this.IsMdiContainer = true;
             //newMDIChild.Dock = DockStyle.Fill;
+            //newMDIChild.FormBorderStyle = FormBorderStyle.None;
             //newMDIChild.MdiParent = this;
             //newMDIChild.Show();
             ventaDataForm = (VentaData)Inicio.AddFormToControl(pFullContainer.Controls, new VentaData());
@@ -33,9 +34,18 @@ namespace PetShopForms.Vistas.Ventas
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("No implementado, gritele al dev",
-                                      "No llegue",
+            if (ventaDataForm.ProductoSeleccionado != null && ventaDataForm.ClienteSeleccionado != null && ventaDataForm.Unidades > 0)
+            {
+                //Todo completo
+            }
+            else
+            {
+                //Incompleto
+                MessageBox.Show("Seleccione un producto, un cliente e ingrese una cantidad",
+                                      "Error",
                                       MessageBoxButtons.OK);
+            }
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

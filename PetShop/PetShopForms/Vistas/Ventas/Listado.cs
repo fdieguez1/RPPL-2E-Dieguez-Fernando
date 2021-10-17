@@ -33,21 +33,6 @@ namespace PetShopForms.Vistas.Ventas
             }
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            if (dgvProductos.SelectedCells.Count > 0)
-            {
-                int selectedRowIndex = this.dgvProductos.SelectedCells[0].RowIndex;
-                int selectedId = (int)dgvProductos.Rows[selectedRowIndex].Cells["Id"].Value;
-                Form form = new Editar(selectedId);
-                DialogResult dialogRes = form.ShowDialog();
-                if (dialogRes != DialogResult.None)
-                {
-                    CargarVentas();
-                }
-            }
-        }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dgvProductos.SelectedCells.Count > 0)

@@ -16,16 +16,10 @@ namespace PetShopForms.Vistas.Clientes
     {
         public PersonaData PersonaDataForm;
         public Cliente selectedCliente;
-        public Editar(int clienteId)
+        public Editar(Cliente cliente)
         {
             InitializeComponent();
-            foreach (Cliente clt in Core.ListaClientes)
-            {
-                if (clt.Id == clienteId)
-                {
-                    selectedCliente = clt;
-                }
-            }
+            selectedCliente = cliente;
         }
 
         private void Editar_Load(object sender, EventArgs e)

@@ -37,9 +37,7 @@ namespace PetShopForms.Vistas.Productos
         {
             if (dgvProductos.SelectedCells.Count > 0)
             {
-                int selectedRowIndex = this.dgvProductos.SelectedCells[0].RowIndex;
-                int selectedId = (int)dgvProductos.Rows[selectedRowIndex].Cells["Id"].Value;
-                Form form = new Editar(selectedId);
+                Form form = new Editar((Producto)dgvProductos.CurrentRow.DataBoundItem);
                 DialogResult dialogRes = form.ShowDialog();
                 if (dialogRes != DialogResult.None)
                 {

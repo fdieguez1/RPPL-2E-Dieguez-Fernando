@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,12 +20,20 @@ namespace Entidades
         Producto producto;
         Cliente cliente;
         int unidades;
+        ETipoEnvio tipoEnvio;
+
 
         static List<Venta> listaVentas;
         public static List<Venta> ListaVentas
         {
-            get { return listaVentas; }
-            set { listaVentas = value; }
+            get
+            {
+                return listaVentas;
+            }
+            set
+            {
+                listaVentas = value;
+            }
         }
 
         public int Id
@@ -89,7 +98,37 @@ namespace Entidades
         {
             get
             {
-                return this.Producto.Precio * this.Unidades;
+                return this.Producto.Precio * this.Unidades + this.TotalEnvio;
+            }
+        }
+        public ETipoEnvio TipoEnvio
+        {
+            get
+            {
+                return this.tipoEnvio;
+            }
+            set
+            {
+                this.tipoEnvio = value;
+            }
+        }
+        public int KmsEnvio
+        {
+            get
+            {
+                return new Random().Next(100, 1000);
+            }
+        }
+        /// <summary>
+        /// Solo lectura, devuelve el calculo total del envio 
+        /// ( Total kms + precio tipo envio + peso )
+        /// Valores: 2kms = $1 | 10gr = $1
+        /// </summary>
+        public double TotalEnvio
+        {
+            get
+            {
+                return this.KmsEnvio / 2 + (int)this.TipoEnvio + this.Producto.Peso / 10f;
             }
         }
 
@@ -106,13 +145,14 @@ namespace Entidades
         /// <param name="producto"></param>
         /// <param name="cliente"></param>
         /// <param name="unidades"></param>
-        public Venta(Producto producto, Cliente cliente, int unidades)
+        public Venta(Producto producto, Cliente cliente, int unidades, ETipoEnvio tipoEnvio)
         {
             this.Id = ++PrevId;
             PrevId = this.Id;
             this.Producto = producto;
             this.Cliente = cliente;
             this.Unidades = unidades;
+            this.TipoEnvio = tipoEnvio;
         }
         /// <summary>
         /// Devuelve una lista de ventas, filtrando solo del tipo Venta
@@ -129,8 +169,10 @@ namespace Entidades
                     Id = venta.id,
                     Cliente = venta.Cliente.Usuario,
                     Producto = venta.Producto.Descripcion,
-                    Cantidad = venta.Unidades,
-                    TotalAPagar = venta.TotalAPagar
+                    venta.Unidades,
+                    venta.TotalAPagar,
+                    venta.TipoEnvio,
+                    venta.TotalEnvio
                 });
             }
             return ventasDisplay;

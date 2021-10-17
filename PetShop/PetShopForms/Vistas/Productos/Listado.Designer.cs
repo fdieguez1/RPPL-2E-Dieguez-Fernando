@@ -43,7 +43,7 @@ namespace PetShopForms.Vistas.Productos
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Location = new System.Drawing.Point(10, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(509, 40);
+            this.label1.Size = new System.Drawing.Size(509, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Listado de Productos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -53,9 +53,9 @@ namespace PetShopForms.Vistas.Productos
             this.btnAdd.BackColor = System.Drawing.Color.SlateBlue;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(10, 50);
+            this.btnAdd.Location = new System.Drawing.Point(10, 45);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 21);
+            this.btnAdd.Size = new System.Drawing.Size(75, 34);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "+ Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -66,9 +66,9 @@ namespace PetShopForms.Vistas.Productos
             this.btnEdit.BackColor = System.Drawing.Color.SlateBlue;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(91, 50);
+            this.btnEdit.Location = new System.Drawing.Point(91, 45);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 21);
+            this.btnEdit.Size = new System.Drawing.Size(75, 34);
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Editar";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -79,9 +79,9 @@ namespace PetShopForms.Vistas.Productos
             this.btnDelete.BackColor = System.Drawing.Color.SlateBlue;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(172, 50);
+            this.btnDelete.Location = new System.Drawing.Point(172, 45);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 21);
+            this.btnDelete.Size = new System.Drawing.Size(75, 34);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Eliminar";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -112,14 +112,14 @@ namespace PetShopForms.Vistas.Productos
             this.dgvProductos.MultiSelect = false;
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.RowTemplate.Height = 25;
-            this.dgvProductos.Size = new System.Drawing.Size(509, 327);
+            this.dgvProductos.Size = new System.Drawing.Size(509, 340);
             this.dgvProductos.TabIndex = 5;
             // 
             // Listado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(529, 420);
+            this.ClientSize = new System.Drawing.Size(529, 433);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);

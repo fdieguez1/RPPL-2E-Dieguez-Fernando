@@ -57,9 +57,6 @@
     <Compile Update="Vistas\Ventas\Agregar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Vistas\Ventas\Editar.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Vistas\Ventas\Listado.cs">
       <SubType>Form</SubType>
     </Compile>

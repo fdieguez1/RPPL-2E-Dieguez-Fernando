@@ -29,7 +29,6 @@ namespace PetShopForms.Vistas.Ventas
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Agregar));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
             this.pFullContainer = new System.Windows.Forms.Panel();
@@ -69,10 +68,10 @@ namespace PetShopForms.Vistas.Ventas
             // 
             // pFullContainer
             // 
-            this.pFullContainer.Location = new System.Drawing.Point(12, 17);
+            this.pFullContainer.Location = new System.Drawing.Point(12, 12);
             this.pFullContainer.Name = "pFullContainer";
-            this.pFullContainer.Size = new System.Drawing.Size(731, 398);
-            this.pFullContainer.TabIndex = 2;
+            this.pFullContainer.Size = new System.Drawing.Size(731, 429);
+            this.pFullContainer.TabIndex = 3;
             // 
             // Agregar
             // 

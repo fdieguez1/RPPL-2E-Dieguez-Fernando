@@ -16,25 +16,19 @@ namespace PetShopForms.Vistas.Productos
     public partial class Editar : Form
     {
         public ProductData ProductDataForm;
-        public Producto selectedProduct;
-        public Editar(int productId)
+        public Producto SelectedProduct;
+        public Editar(Producto producto)
         {
             InitializeComponent();
-            foreach (Producto prd in Producto.ListaProductos)
-            {
-                if (prd.Id == productId)
-                {
-                    selectedProduct = prd;
-                }
-            }
+            SelectedProduct = producto;
         }
 
         private void Editar_Load(object sender, EventArgs e)
         {
             ProductDataForm = (ProductData)Inicio.AddFormToControl(pFullContainer.Controls, new ProductData());
-            ProductDataForm.Precio = selectedProduct.Precio;
-            ProductDataForm.Cantidad = selectedProduct.Cantidad;
-            ProductDataForm.TipoProd = selectedProduct.TipoProducto;
+            ProductDataForm.Precio = SelectedProduct.Precio;
+            ProductDataForm.Cantidad = SelectedProduct.Cantidad;
+            ProductDataForm.TipoProd = SelectedProduct.TipoProducto;
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -57,10 +51,10 @@ namespace PetShopForms.Vistas.Productos
             else
             {
                 Producto auxProducto = new Producto(descripcion, tipoProd, precio, cantidad);
-                auxProducto.Id = selectedProduct.Id;
+                auxProducto.Id = SelectedProduct.Id;
                 for (int i = 0; i < Producto.ListaProductos.Count; i++)
                 {
-                    if (Producto.ListaProductos[i] == selectedProduct)
+                    if (Producto.ListaProductos[i] == SelectedProduct)
                     {
                         Producto.ListaProductos[i] = auxProducto;
                         MessageBox.Show("Empleado editado con exito",

@@ -17,16 +17,10 @@ namespace PetShopForms.Vistas.Empleados
         public PersonaData PersonaDataForm;
         public EmpleadoData EmpleadoDataForm;
         public Empleado selectedEmpleado;
-        public Editar(int empleadoId)
+        public Editar(Empleado empleado)
         {
             InitializeComponent();
-            foreach (Empleado emp in Core.ListaEmpleados)
-            {
-                if (emp.Id == empleadoId)
-                {
-                    selectedEmpleado = emp;
-                }
-            }
+            selectedEmpleado = empleado;
         }
 
         private void Editar_Load(object sender, EventArgs e)

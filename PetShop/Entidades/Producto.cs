@@ -19,19 +19,32 @@ namespace Entidades
         int id;
         double precio;
         int cantidad;
+        float peso;
 
         static List<Producto> listaProductos;
         public static List<Producto> ListaProductos
         {
-            get { return listaProductos; }
-            set { listaProductos = value; }
+            get
+            {
+                return listaProductos;
+            }
+            set
+            {
+                listaProductos = value;
+            }
         }
 
         ETipoProducto tipoProducto;
         public ETipoProducto TipoProducto
         {
-            get { return this.tipoProducto; }
-            set { this.tipoProducto = value; }
+            get
+            {
+                return this.tipoProducto;
+            }
+            set
+            {
+                this.tipoProducto = value;
+            }
         }
 
         public Producto this[int id]
@@ -73,13 +86,36 @@ namespace Entidades
         }
         public double Precio
         {
-            get { return this.precio; }
-            set { this.precio = value; }
+            get
+            {
+                return this.precio;
+            }
+            set
+            {
+                this.precio = value;
+            }
         }
         public int Cantidad
         {
-            get { return this.cantidad; }
-            set { this.cantidad = value; }
+            get
+            {
+                return this.cantidad;
+            }
+            set
+            {
+                this.cantidad = value;
+            }
+        }
+        public float Peso
+        {
+            get
+            {
+                return this.peso;
+            }
+            set
+            {
+                this.peso = value;
+            }
         }
 
         static Producto()
@@ -111,7 +147,10 @@ namespace Entidades
             }
             return altaOk;
         }
-
+        //Constructor vacio para utilizarse junto cno el indexador
+        public Producto()
+        {
+        }
         /// <summary>
         /// Constructor de la clase producto, asigna sus valores de tipo, precio y cantidad, no se puede inicializar un producto sin estos datos
         /// </summary>
@@ -138,9 +177,9 @@ namespace Entidades
         public static bool operator +(List<Producto> listaProductos, Producto Producto)
         {
             bool altaOk = false;
-            foreach (Producto clt in listaProductos)
+            foreach (Producto prd in listaProductos)
             {
-                if (clt == Producto)
+                if (prd == Producto)
                 {
                     return false;
                 }
@@ -158,11 +197,11 @@ namespace Entidades
         public static bool operator -(List<Producto> listaProductos, Producto Producto)
         {
             bool removeOk = false;
-            foreach (Producto clt in listaProductos)
+            foreach (Producto prd in listaProductos)
             {
-                if (clt == Producto)
+                if (prd == Producto)
                 {
-                    listaProductos.Remove(clt);
+                    listaProductos.Remove(prd);
                     return true;
                 }
             }
