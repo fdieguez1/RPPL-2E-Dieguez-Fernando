@@ -76,4 +76,3 @@ C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\De
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.Vistas.Empleados.Editar.resources
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.Vistas.Administradores.Editar.resources
 C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.Vistas.Ventas.Ticket.resources
-C:\Users\ferna\source\repos\RPPL-2E-Dieguez-Fernando\PetShop\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.csproj.CopyComplete

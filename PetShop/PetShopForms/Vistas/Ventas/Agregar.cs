@@ -42,7 +42,7 @@ namespace PetShopForms.Vistas.Ventas
                         MessageBox.Show("Venta guardada correctamente",
                                         "Operacion exitosa",
                                         MessageBoxButtons.OK);
-                        Form form = new Ticket(auxVenta.Mostrar());
+                        Form form = new Ticket(auxVenta.Mostrar("PetShop S.A."));
                         DialogResult dialogRes = form.ShowDialog();
                         if (dialogRes != DialogResult.None)
                         {

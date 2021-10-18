@@ -187,6 +187,10 @@ namespace Entidades
         {
             return (string)this;
         }
+        public string Mostrar(string firma)
+        {
+            return $"{this.Mostrar()} \n{firma}";
+        }
 
         public static explicit operator string(Venta vnt)
         {
