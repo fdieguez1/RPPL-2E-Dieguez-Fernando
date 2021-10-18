@@ -28,18 +28,26 @@ namespace PetShopForms.Vistas.Ventas
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
+            Venta auxVenta;
+            bool ventaOk;
             if (ventaDataForm.Unidades > 0)
             {
                 try
                 {
-                    if (((Empleado)Core.UsuarioLogueado).Vender(ventaDataForm.ProductoSeleccionado, ventaDataForm.ClienteSeleccionado,
-                        ventaDataForm.Unidades, ventaDataForm.TipoEnvio))
+                    ventaOk = ((Empleado)Core.UsuarioLogueado).Vender(ventaDataForm.ProductoSeleccionado, ventaDataForm.ClienteSeleccionado,
+                        ventaDataForm.Unidades, ventaDataForm.TipoEnvio, out auxVenta);
+                    if (ventaOk)
                     {
                         Inicio.PlaySound(Inicio.SucessSoundPath);
                         MessageBox.Show("Venta guardada correctamente",
                                         "Operacion exitosa",
                                         MessageBoxButtons.OK);
-                        this.Close();
+                        Form form = new Ticket(auxVenta.Mostrar());
+                        DialogResult dialogRes = form.ShowDialog();
+                        if (dialogRes != DialogResult.None)
+                        {
+                            this.Close();
+                        }
                     }
                     else
                     {

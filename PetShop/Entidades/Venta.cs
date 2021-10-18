@@ -191,17 +191,17 @@ namespace Entidades
         public static explicit operator string(Venta vnt)
         {
             StringBuilder sb = new StringBuilder();
-
-            sb.AppendLine($"{vnt.Cliente}\r");
-            sb.AppendLine($"{vnt.Producto}\r");
-            sb.AppendLine($"Total a pagar: {vnt.Producto.Cantidad * vnt.Producto.Precio}\r");
-
+            sb.AppendLine($"Cliente: {vnt.Cliente.NombreCompleto}\r");
+            sb.AppendLine($"Producto: {vnt.Producto.Descripcion}\r");
+            sb.AppendLine($"Unidades: {vnt.Unidades}\r");
+            sb.AppendLine($"Precio Unitario: {vnt.Producto.Precio}\r");
+            sb.AppendLine($"Tipo de envio: {vnt.TipoEnvio}\r");
+            sb.AppendLine($"Kms de envio: {vnt.cliente.KmsEnvio}\r");
+            sb.AppendLine($"Total envio: {vnt.TotalEnvio}\r");
+            sb.AppendLine($"----------------------------");
+            sb.AppendLine($"Total a pagar: {vnt.TotalAPagar}\r");
             return sb.ToString();
         }
-
-
-
-
         /// <summary>
         /// Sobrecarga del metodo + para cargar un venta a la lista de ventas
         /// </summary>

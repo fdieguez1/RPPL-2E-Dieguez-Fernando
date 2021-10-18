@@ -48,10 +48,10 @@ namespace Entidades
         /// <param name="cliente">cliente que realiza la compra</param>
         /// <param name="producto">producto vendido</param>
         /// <returns>devuelve true si logro la venta, false si fallo</returns>
-        public bool Vender(Producto producto, Cliente cliente, int unidades, ETipoEnvio tipoEnvio)
+        public bool Vender(Producto producto, Cliente cliente, int unidades, ETipoEnvio tipoEnvio, out Venta outVenta)
         {
             Venta auxVenta = new Venta(producto, cliente, unidades, tipoEnvio);
-            bool altaOk = false;
+            bool altaOk;
             if (cliente.Saldo > auxVenta.TotalAPagar)
             {
                 if (producto.Cantidad > 0 && producto.Cantidad >= unidades)
@@ -72,6 +72,7 @@ namespace Entidades
             {
                 throw new ClienteSinDineroExcepcion(cliente.Nombre, cliente.Saldo, "Error en la venta, verifique los datos ingresados");
             }
+            outVenta = auxVenta;
             return altaOk;
         }
 
