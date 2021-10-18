@@ -35,6 +35,7 @@ namespace PetShopForms.Vistas.Ventas
                     if (((Empleado)Core.UsuarioLogueado).Vender(ventaDataForm.ProductoSeleccionado, ventaDataForm.ClienteSeleccionado,
                         ventaDataForm.Unidades, ventaDataForm.TipoEnvio))
                     {
+                        Inicio.PlaySound(Inicio.SucessSoundPath);
                         MessageBox.Show("Venta guardada correctamente",
                                         "Operacion exitosa",
                                         MessageBoxButtons.OK);

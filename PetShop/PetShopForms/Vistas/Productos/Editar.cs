@@ -63,6 +63,7 @@ namespace PetShopForms.Vistas.Productos
                     if (Producto.ListaProductos[i] == SelectedProduct)
                     {
                         Producto.ListaProductos[i] = auxProducto;
+                        Inicio.PlaySound(Inicio.SucessSoundPath);
                         MessageBox.Show("Producto editado con exito",
                                     "Operacion exitosa",
                                     MessageBoxButtons.OK);

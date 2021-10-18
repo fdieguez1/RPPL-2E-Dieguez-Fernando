@@ -106,6 +106,7 @@ namespace PetShopForms.Vistas.Administradores
                         {
                             if (Core.ListaEmpleados[i] == selectedAdmin)
                             {
+                                Inicio.PlaySound(Inicio.SucessSoundPath);
                                 Core.ListaEmpleados[i] = auxEmpleado;
                                 MessageBox.Show("Empleado editado con exito", "Operacion exitosa", MessageBoxButtons.OK);
                                 break;

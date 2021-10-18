@@ -90,6 +90,7 @@ namespace PetShopForms.Vistas.Empleados
                     userType = userType.Split('.')[1];
                     if (altaOk)
                     {
+                        Inicio.PlaySound(Inicio.SucessSoundPath);
                         MessageBox.Show($"Alta de {userType} exitosa",
                                                   "Carga exitosa",
                                                   MessageBoxButtons.OK);

@@ -53,6 +53,7 @@ namespace PetShopForms.Vistas.Productos
                 bool altaOk = Producto.ListaProductos + auxProducto;
                 if (altaOk)
                 {
+                    Inicio.PlaySound(Inicio.SucessSoundPath);
                     MessageBox.Show("Alta de producto exitosa",
                                               "Carga exitosa",
                                               MessageBoxButtons.OK);

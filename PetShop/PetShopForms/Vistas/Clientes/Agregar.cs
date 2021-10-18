@@ -55,6 +55,7 @@ namespace PetShopForms.Vistas.Clientes
                     bool altaOk = Core.ListaClientes + auxCliente;
                     if (altaOk)
                     {
+                        Inicio.PlaySound(Inicio.SucessSoundPath);
                         MessageBox.Show("Alta de cliente exitosa",
                                                   "Carga exitosa",
                                                   MessageBoxButtons.OK);

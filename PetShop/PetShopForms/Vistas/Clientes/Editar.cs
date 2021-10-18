@@ -74,6 +74,7 @@ namespace PetShopForms.Vistas.Clientes
                     if (Core.ListaClientes[i] == selectedCliente)
                     {
                         Core.ListaClientes[i] = auxCliente;
+                        Inicio.PlaySound(Inicio.SucessSoundPath);
                         MessageBox.Show("Cliente editado con exito",
                                     "Operacion exitosa",
                                     MessageBoxButtons.OK);

@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,7 +17,11 @@ namespace PetShopForms
     {
         Form login;
         Form menu;
-        public static int timeOutTime = 30;
+        static int TimeOutTime = 30;
+        static SoundPlayer SoundPlayer;
+        public static string LocalFolderPath = Application.StartupPath.Replace("bin\\Debug\\net5.0-windows\\", string.Empty);
+        public static string SwitchSoundPath = $"{LocalFolderPath}\\Assets\\sonido-switch.wav";
+        public static string SucessSoundPath = $"{LocalFolderPath}\\Assets\\sonido-success.wav";
 
         public Form Login
         {
@@ -74,7 +79,7 @@ namespace PetShopForms
             lblUserType.Text = Core.UsuarioLogueado is Administrador ? "Administrador" : "Empleado";
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             ResetTimeOutTime();
-            this.lblTiempoFuera.Text = $"timeout: {timeOutTime}";
+            this.lblTiempoFuera.Text = $"timeout: {TimeOutTime}";
             this.lblTime.Text = DateTime.Now.ToString("F");
 
         }
@@ -108,9 +113,9 @@ namespace PetShopForms
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.lblTime.Text = DateTime.Now.ToString("F");
-            timeOutTime--;
-            this.lblTiempoFuera.Text = $"timeout: {timeOutTime}";
-            if (timeOutTime <= 0)
+            TimeOutTime--;
+            this.lblTiempoFuera.Text = $"timeout: {TimeOutTime}";
+            if (TimeOutTime <= 0)
             {
                 this.timer1.Enabled = false;
                 if (MessageBox.Show("Cerrando sesion por inactividad",
@@ -136,7 +141,12 @@ namespace PetShopForms
 
         public static void ResetTimeOutTime()
         {
-            timeOutTime = 60;
+            TimeOutTime = 60;
+        }
+        public static void PlaySound(string soundPath)
+        {
+            SoundPlayer = new SoundPlayer($"{soundPath}");
+            SoundPlayer.Play();
         }
     }
 }

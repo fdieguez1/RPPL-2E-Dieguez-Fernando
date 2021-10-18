@@ -91,12 +91,22 @@ namespace PetShopForms.Vistas.Clientes
             }
         }
 
-        void CargarClientes()
+        void CargarClientes(int filterId = 0, string filterString = null)
         {
+            List<Cliente> clientesFiltrados = new List<Cliente>();
+            clientesFiltrados = Core.ListaClientes;
             if (Core.ListaClientes.Count > 0)
             {
-                dgvClientes.DataSource = new List<Cliente>(Core.ListaClientes);
+                if (filterId != 0)
+                {
+                    clientesFiltrados = clientesFiltrados.Where(x => x.Id == filterId).ToList(); ;
+                }
+                if (filterString != null)
+                {
+                    clientesFiltrados = clientesFiltrados.Where(x => x.Nombre.ToLower().Contains(filterString.ToLower())).ToList();
+                }
             }
+            dgvClientes.DataSource = clientesFiltrados;
         }
 
         private void Listado_Paint(object sender, PaintEventArgs e)
@@ -107,6 +117,45 @@ namespace PetShopForms.Vistas.Clientes
         private void Listado_MouseClick(object sender, MouseEventArgs e)
         {
             Inicio.ResetTimeOutTime();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNombre.Text.Length > 0)
+            {
+                if (Validaciones.ValidarNombreApellido(txtNombre.Text))
+                {
+                    CargarClientes(0, txtNombre.Text);
+                }
+                else
+                {
+                    txtNombre.Text = string.Empty;
+                }
+            }
+            else
+            {
+                CargarClientes();
+            }
+        }
+
+        private void txtId_TextChanged(object sender, EventArgs e)
+        {
+            if (txtId.Text.Length > 0)
+            {
+                if (Validaciones.ValidarSoloEnteros(txtId.Text))
+                {
+                    CargarClientes(int.Parse(txtId.Text));
+                }
+                else
+                {
+                    txtId.Text = string.Empty;
+                }
+
+            }
+            else
+            {
+                CargarClientes();
+            }
         }
     }
 }

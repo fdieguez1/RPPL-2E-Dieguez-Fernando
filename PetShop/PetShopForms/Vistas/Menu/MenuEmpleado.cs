@@ -27,11 +27,13 @@ namespace PetShopForms.Vistas.Menu
         private void btnClientes_Click(object sender, EventArgs e)
         {
             InicioForm.ChangeBody(new Clientes.Listado());
+            Inicio.PlaySound(Inicio.SwitchSoundPath);
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
             InicioForm.ChangeBody(new Ventas.Listado());
+            Inicio.PlaySound(Inicio.SwitchSoundPath);
         }
        
     }
