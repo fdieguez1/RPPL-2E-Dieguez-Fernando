@@ -47,7 +47,7 @@ namespace PetShopForms.Vistas.Empleados
         {
             get
             {
-                return this.isSuperAdmin && this.IsAdmin;
+                return this.isSuperAdmin;
             }
             set
             {
@@ -127,6 +127,12 @@ namespace PetShopForms.Vistas.Empleados
                                          MessageBoxButtons.OK);
                 }
             }
+        }
+
+        private void chkIsSuperAdmin_CheckedChanged(object sender, EventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
+            IsSuperAdmin= chkIsSuperAdmin.Checked;
         }
     }
 }

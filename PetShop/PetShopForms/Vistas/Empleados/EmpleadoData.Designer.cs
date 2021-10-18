@@ -73,6 +73,7 @@ namespace PetShopForms.Vistas.Empleados
             this.chkIsSuperAdmin.TabIndex = 10;
             this.chkIsSuperAdmin.Text = "Es super admin";
             this.chkIsSuperAdmin.UseVisualStyleBackColor = true;
+            this.chkIsSuperAdmin.CheckedChanged += new System.EventHandler(this.chkIsSuperAdmin_CheckedChanged);
             // 
             // label2
             // 
