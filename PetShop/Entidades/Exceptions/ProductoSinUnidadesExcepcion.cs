@@ -8,7 +8,11 @@ namespace Entidades.Exceptions
 {
     public class ProductoSinUnidadesExcepcion : Exception
     {
-        public ProductoSinUnidadesExcepcion(string message) : base(message)
+        /// <summary>
+        /// Constructor de la excepcion utiliza el constructor de su clase padre, pasandole un mensaje requerido
+        /// </summary>
+        /// <param name="message">mensaje a mostrar, opcional </param>
+        public ProductoSinUnidadesExcepcion(string message = "Producto sin unidades restantes") : base(message)
         {
 
         }

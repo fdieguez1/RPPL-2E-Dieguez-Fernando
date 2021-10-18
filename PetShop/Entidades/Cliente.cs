@@ -41,7 +41,7 @@ namespace Entidades
         /// <summary>
         /// Carga de test de clientes
         /// </summary>
-        /// <returns></returns>
+        /// <returns>devuelve true si la carga fue correcta, false si no lo fue</returns>
         public static bool CrearClientesPrueba()
         {
             bool altaOk = false;
@@ -75,6 +75,10 @@ namespace Entidades
             this.KmsEnvio = kmsEnvio;
         }
 
+        /// <summary>
+        /// sobreescritura del metodo mostrar de la clase Persona para ser utilizada en cliente
+        /// </summary>
+        /// <returns>cadena resultante a ser mostrada</returns>
         public override string Mostrar()
         {
             StringBuilder sb = new StringBuilder();

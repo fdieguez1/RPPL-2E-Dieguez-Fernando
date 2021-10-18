@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
+    /// <summary>
+    /// Clase estatica donde se almacenan los listados y variables necesarias para distintas pantallas en la aplicacion, contiene metodos de extension y colecciones
+    /// </summary>
     public static class Core
     {
         static Dictionary<string, float> tipoEnvio;

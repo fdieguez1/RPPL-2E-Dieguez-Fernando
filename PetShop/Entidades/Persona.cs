@@ -97,6 +97,9 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Devuelve el nombre completo concatenando nombre y apellido, permite sobrecarga
+        /// </summary>
         public virtual string NombreCompleto
         {
             get
@@ -112,6 +115,11 @@ namespace Entidades
             PrevId = 0;
         }
 
+        /// <summary>
+        /// constructor con dos paremetros, nombre y apellido
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
         public Persona(string nombre, string apellido)
         {
             this.Id = ++PrevId;
@@ -120,7 +128,7 @@ namespace Entidades
             this.Apellido = apellido;
         }
         /// <summary>
-        /// Constructor base para cargar los datos basicos de una persona
+        /// Constructor para cargar los datos basicos de una persona, reutiliza el contructor con nombre y apellido
         /// </summary>
         /// <param name="nombre">nombre a asignar</param>
         /// <param name="apellido">apellido a asignar</param>

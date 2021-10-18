@@ -76,11 +76,14 @@ namespace Entidades
             return altaOk;
         }
 
+        /// <summary>
+        /// clase protegida que aumenta el sueldo del empleado, permite ser sobreescrita
+        /// </summary>
+        /// <param name="porcentaje">porcentaje a aumentar</param>
         protected virtual void AumentarSueldo(float porcentaje)
         {
             this.Sueldo += this.Sueldo * porcentaje / 100;
         }
-
 
         /// <summary>
         /// Carga de prueba de empleados hardcodeados
@@ -105,6 +108,10 @@ namespace Entidades
             return altaOk;
         }
 
+        /// <summary>
+        /// sobreescritura del metodo Mostrar de la clase Persona
+        /// </summary>
+        /// <returns></returns>
         public override string Mostrar()
         {
             return this.ToString();

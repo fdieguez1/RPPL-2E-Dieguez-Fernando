@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Entidades
 {
     /// <summary>
-    /// Clase sellada Administrador, que no permite herencia, hereda los atributos de empleado y posee permisos especiales. Es la contenedora de la lista de empleados
+    /// Clase sellada Administrador, que no permite herencia, hereda los atributos de empleado y posee permisos especiales.
     /// </summary>
 #pragma warning disable CS0661
     public sealed class Administrador : Empleado
@@ -77,6 +77,10 @@ namespace Entidades
             this.Bono = bono;
         }
 
+        /// <summary>
+        /// Metodo utilizado para aumentar el sueldo de un administrador, reutiliza el codigo de su clase padre y asigna un nuevo valor al bono
+        /// </summary>
+        /// <param name="porcentaje">porcentaje a aumentar</param>
         protected override void AumentarSueldo(float porcentaje)
         {
             base.AumentarSueldo(porcentaje);

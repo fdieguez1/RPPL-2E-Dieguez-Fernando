@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entidades.Enums
 {
+    /// <summary>
+    /// Enumerador de tipo de producto 0-4
+    /// </summary>
     public enum ETipoProducto
     {
         Alimentos,
