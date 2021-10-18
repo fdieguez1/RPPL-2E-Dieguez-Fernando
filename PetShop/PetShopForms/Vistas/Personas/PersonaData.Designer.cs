@@ -118,6 +118,7 @@ namespace PetShopForms.Vistas.Persona
             this.txtCuil.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCuil.Location = new System.Drawing.Point(3, 161);
+            this.txtCuil.MaxLength = 11;
             this.txtCuil.Name = "txtCuil";
             this.txtCuil.Size = new System.Drawing.Size(314, 23);
             this.txtCuil.TabIndex = 5;

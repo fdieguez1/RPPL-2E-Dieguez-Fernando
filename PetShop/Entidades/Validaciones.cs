@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,23 +16,34 @@ namespace Entidades
         /// <returns>true si es correcto, false si es incorrecto</returns>
         public static bool ValidarCuil(double cuil)
         {
-            char[] ponderador = { '5', '4', '3', '2', '7', '6', '5', '4', '3', '2' };
-            int i;
-            double suma = 0;
-            char[] numero = cuil.ToString("00000000000").ToCharArray();
-            for (i = 0; i < 10; i++)
+            if (cuil <= 0)
             {
-                suma += (int.Parse(ponderador[i].ToString()) * int.Parse(numero[i].ToString()));
+                throw new CuilException("cuil erroneo");
             }
-
-            suma = suma % 11;
-            suma = 11 - suma;
-
-            suma = suma == 10 ? 0 : suma == 11 ? 1 : suma;
-
-
-            return suma == int.Parse(numero[10].ToString());
+            if (cuil.ToString().Length != 11)
+            {
+                throw new CuilException("longitud de cuil incorrecta");
+            }
+            bool rv = false;
+            int verificador;
+            int resultado = 0;
+            string codes = "6789456789";
+            string cuilString = cuil.ToString();
+            verificador = int.Parse(cuilString[cuilString.Length - 1].ToString());
+            int x = 0;
+            while (x < 10)
+            {
+                int digitoValidador = int.Parse(codes.Substring((x), 1));
+                int digito = int.Parse(cuilString.Substring((x), 1));
+                int digitoValidacion = digitoValidador * digito;
+                resultado += digitoValidacion;
+                x++;
+            }
+            resultado %= 11;
+            rv = (resultado == verificador);
+            return rv;
         }
+
         /// <summary>
         /// Valida que solo se ingresen caracteres para los nombres y apellidos
         /// </summary>
