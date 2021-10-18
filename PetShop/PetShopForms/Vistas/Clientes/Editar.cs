@@ -16,6 +16,7 @@ namespace PetShopForms.Vistas.Clientes
     {
         string usuario, contrasenia, nombre, apellido;
         double saldo, cuil;
+        int kmsEnvio;
 
         public PersonaData PersonaDataForm;
         public Cliente selectedCliente;
@@ -56,6 +57,7 @@ namespace PetShopForms.Vistas.Clientes
             nombre = PersonaDataForm.Nombre;
             apellido = PersonaDataForm.Apellido;
             saldo = double.Parse(txtSaldo.Text);
+            kmsEnvio = new Random().Next(100, 600);
             if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(contrasenia) || cuil < 1
                 || string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido) || saldo < 1)
             {
@@ -65,7 +67,7 @@ namespace PetShopForms.Vistas.Clientes
             }
             else
             {
-                Cliente auxCliente = new Cliente(nombre, apellido, usuario, contrasenia, saldo, cuil);
+                Cliente auxCliente = new Cliente(nombre, apellido, usuario, contrasenia, saldo, cuil, kmsEnvio);
                 auxCliente.Id = selectedCliente.Id;
                 for (int i = 0; i < Core.ListaClientes.Count; i++)
                 {

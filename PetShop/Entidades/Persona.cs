@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades.Exceptions;
+using System;
 using System.Text;
 
 namespace Entidades
@@ -71,6 +72,10 @@ namespace Entidades
                 if (Validaciones.ValidarCuil(value))
                 {
                     this.cuil = value;
+                }
+                else
+                {
+                    throw new CuilException("Cuil invalido, verifique los datos ingresados");
                 }
             }
         }
@@ -147,6 +152,7 @@ namespace Entidades
         /// <param name="usuario">string usuario a buscar</param>
         /// <param name="contrasenia">string contraseña a buscar</param>
         /// <returns>Devuelve el usuario encontrado si es exitoso, null si no hubo coincidencias</returns>
+        /// <exception cref="UsuarioInvalidoException"></exception>
         public static Persona Login(string usuario, string contrasenia)
         {
             foreach (Persona item in Core.ListaEmpleados)
@@ -156,7 +162,7 @@ namespace Entidades
                     return item;
                 }
             }
-            return null;
+            throw new UsuarioInvalidoException("Credenciales invalidas");
         }
     }
 }

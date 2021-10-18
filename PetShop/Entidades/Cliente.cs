@@ -13,6 +13,19 @@ namespace Entidades
     public class Cliente : Persona
 #pragma warning restore CS0661 
     {
+        int kmsEnvio;
+        public int KmsEnvio
+        {
+            get
+            {
+                return this.kmsEnvio;
+            }
+            set
+            {
+                this.kmsEnvio = value;
+            }
+        }
+
         double saldo;
         public double Saldo
         {
@@ -22,7 +35,7 @@ namespace Entidades
             }
             set
             {
-                this.saldo = value;
+                this.saldo = Math.Round(value, 2, MidpointRounding.AwayFromZero);
             }
         }
         /// <summary>
@@ -36,8 +49,8 @@ namespace Entidades
             for (int i = 0; i < 10; i++)
             {
                 testCount++;
-                int salary = new Random().Next(10000, 100000);
-                Cliente newEmp = new Cliente($"ClienteTst", $"ApellidoTest", $"User{testCount}", "utnfra2021", 500, 20222222223);
+                int saldo = new Random().Next(1000, 10000);
+                Cliente newEmp = new Cliente($"ClienteTst", $"ApellidoTest", $"User{testCount}", "utnfra2021", saldo, 20222222223, new Random().Next(100, 600));
                 altaOk = Core.ListaClientes + newEmp;
                 if (!altaOk)
                 {
@@ -56,15 +69,16 @@ namespace Entidades
         /// <param name="contrasenia"></param>
         /// <param name="saldo"></param>
         /// <param name="cuil"></param>
-        public Cliente(string nombre, string apellido, string usuario, string contrasenia, double saldo, double cuil) : base(nombre, apellido, usuario, contrasenia, cuil)
+        public Cliente(string nombre, string apellido, string usuario, string contrasenia, double saldo, double cuil, int kmsEnvio) : base(nombre, apellido, usuario, contrasenia, cuil)
         {
             this.Saldo = saldo;
+            this.KmsEnvio = kmsEnvio;
         }
 
         public override string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Saldo: {this.Saldo.ToString()}");
+            sb.AppendLine($"Saldo: {this.Saldo}");
             return sb.ToString();
         }
 
@@ -96,7 +110,6 @@ namespace Entidades
         /// <returns>true si logro agregarlo, false si no lo logro</returns>
         public static bool operator +(List<Cliente> listaClientes, Cliente cliente)
         {
-            bool altaOk = false;
             foreach (Cliente clt in listaClientes)
             {
                 if (clt == cliente)
@@ -105,8 +118,7 @@ namespace Entidades
                 }
             }
             listaClientes.Add(cliente);
-            altaOk = true;
-            return altaOk;
+            return true;
         }
         /// <summary>
         /// Sobrecarga del operador - para eliminar clientes a la lista de clientes
@@ -116,7 +128,6 @@ namespace Entidades
         /// <returns>true si logro agregarlo, false si no lo logro</returns>
         public static bool operator -(List<Cliente> listaClientes, Cliente Cliente)
         {
-            bool removeOk = false;
             foreach (Cliente clt in listaClientes)
             {
                 if (clt == Cliente)
@@ -125,8 +136,7 @@ namespace Entidades
                     return true;
                 }
             }
-            removeOk = false;
-            return removeOk;
+            return false;
         }
         /// <summary>
         /// Sobrecarga del operador == para comparar dos clientes por su nombre de usuario

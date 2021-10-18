@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Entidades.Exceptions;
 using PetShopForms.Vistas.Persona;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,10 @@ namespace PetShopForms.Vistas.Clientes
     public partial class Agregar : Form
     {
         public PersonaData PersonaDataForm;
+        string usuario, contrasenia, nombre, apellido;
+        double saldo, cuil;
+        int kmsEnvio;
+
         public Agregar()
         {
             InitializeComponent();
@@ -28,14 +33,12 @@ namespace PetShopForms.Vistas.Clientes
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            string usuario, contrasenia, nombre, apellido;
-            double saldo, cuil;
-
             usuario = PersonaDataForm.Usuario;
             contrasenia = PersonaDataForm.Contrasenia;
             cuil = PersonaDataForm.Cuil;
             nombre = PersonaDataForm.Nombre;
             apellido = PersonaDataForm.Apellido;
+            kmsEnvio = new Random().Next(100, 600);
             saldo = double.Parse(txtSaldo.Text);
             if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(contrasenia) || cuil < 1
                 || string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido) || saldo < 1)
@@ -46,21 +49,32 @@ namespace PetShopForms.Vistas.Clientes
             }
             else
             {
-                Cliente auxCliente = new Cliente(nombre, apellido, usuario, contrasenia, saldo, cuil);
-                bool altaOk = Core.ListaClientes + auxCliente;
-                if (altaOk)
+                try
                 {
-                    MessageBox.Show("Alta de cliente exitosa",
-                                              "Carga exitosa",
-                                              MessageBoxButtons.OK);
+                    Cliente auxCliente = new Cliente(nombre, apellido, usuario, contrasenia, saldo, cuil, kmsEnvio);
+                    bool altaOk = Core.ListaClientes + auxCliente;
+                    if (altaOk)
+                    {
+                        MessageBox.Show("Alta de cliente exitosa",
+                                                  "Carga exitosa",
+                                                  MessageBoxButtons.OK);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error en la carga del cliente",
+                                                  "Error",
+                                                  MessageBoxButtons.OK);
+                    }
+                    
                 }
-                else
+                catch (CuilException ex)
                 {
-                    MessageBox.Show("Error en la carga del cliente",
+                    MessageBox.Show(ex.Message,
                                               "Error",
                                               MessageBoxButtons.OK);
                 }
-                this.Close();
+
             }
         }
 

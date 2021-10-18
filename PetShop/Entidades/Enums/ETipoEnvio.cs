@@ -8,7 +8,7 @@ namespace Entidades.Enums
 {
     public enum ETipoEnvio
     {
-        Moto = 250,
-        MiniFlete = 400
+        Moto,
+        MiniFlete
     }
 }

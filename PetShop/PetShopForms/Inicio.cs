@@ -73,8 +73,8 @@ namespace PetShopForms
             lblWelcome.Text = $"Bienvenido, {Core.UsuarioLogueado.NombreCompleto}";
             lblUserType.Text = Core.UsuarioLogueado is Administrador ? "Administrador" : "Empleado";
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
-            timeOutTime = 30;
-            this.lblTiempoFuera.Text = timeOutTime.ToString();
+            ResetTimeOutTime();
+            this.lblTiempoFuera.Text = $"timeout: {timeOutTime}";
             this.lblTime.Text = DateTime.Now.ToString("F");
 
         }
@@ -109,7 +109,7 @@ namespace PetShopForms
         {
             this.lblTime.Text = DateTime.Now.ToString("F");
             timeOutTime--;
-            this.lblTiempoFuera.Text = timeOutTime.ToString();
+            this.lblTiempoFuera.Text = $"timeout: {timeOutTime}";
             if (timeOutTime <= 0)
             {
                 this.timer1.Enabled = false;
@@ -136,7 +136,7 @@ namespace PetShopForms
 
         public static void ResetTimeOutTime()
         {
-            timeOutTime = 30;
+            timeOutTime = 60;
         }
     }
 }

@@ -17,7 +17,10 @@ namespace PetShopForms.Vistas.Persona
         double cuil;
         public string Usuario
         {
-            get { return this.usuario; }
+            get
+            {
+                return this.usuario;
+            }
             set
             {
                 this.txtUsuario.Text = value;
@@ -26,7 +29,10 @@ namespace PetShopForms.Vistas.Persona
         }
         public string Contrasenia
         {
-            get { return this.contrasenia; }
+            get
+            {
+                return this.contrasenia;
+            }
             set
             {
                 this.txtContrasenia.Text = value;
@@ -35,7 +41,10 @@ namespace PetShopForms.Vistas.Persona
         }
         public string Nombre
         {
-            get { return this.nombre; }
+            get
+            {
+                return this.nombre;
+            }
             set
             {
                 this.txtNombre.Text = value;
@@ -44,7 +53,10 @@ namespace PetShopForms.Vistas.Persona
         }
         public string Apellido
         {
-            get { return this.apellido; }
+            get
+            {
+                return this.apellido;
+            }
             set
             {
                 this.txtApellido.Text = value;
@@ -53,7 +65,10 @@ namespace PetShopForms.Vistas.Persona
         }
         public double Cuil
         {
-            get { return this.cuil; }
+            get
+            {
+                return this.cuil;
+            }
             set
             {
                 this.txtCuil.Text = value.ToString();

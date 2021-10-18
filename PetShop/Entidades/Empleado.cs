@@ -1,4 +1,5 @@
 ﻿using Entidades.Enums;
+using Entidades.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,18 +48,29 @@ namespace Entidades
         /// <param name="cliente">cliente que realiza la compra</param>
         /// <param name="producto">producto vendido</param>
         /// <returns>devuelve true si logro la venta, false si fallo</returns>
-        protected bool Vender(Producto producto, Cliente cliente, int unidades, ETipoEnvio tipoEnvio)
+        public bool Vender(Producto producto, Cliente cliente, int unidades, ETipoEnvio tipoEnvio)
         {
             Venta auxVenta = new Venta(producto, cliente, unidades, tipoEnvio);
             bool altaOk = false;
-            if (cliente.Saldo >= auxVenta.TotalAPagar && producto.Cantidad > 0 && producto.Cantidad >= unidades)
+            if (cliente.Saldo > auxVenta.TotalAPagar)
             {
-                cliente.Saldo -= producto.Precio;
-                if (producto.Cantidad > unidades)
+                if (producto.Cantidad > 0 && producto.Cantidad >= unidades)
                 {
                     altaOk = Venta.ListaVentas + auxVenta;
-                    producto.Cantidad -= unidades;
+                    if (altaOk)
+                    {
+                        cliente.Saldo -= auxVenta.TotalAPagar;
+                        producto.Cantidad -= unidades;
+                    }
                 }
+                else
+                {
+                    throw new ProductoSinUnidadesExcepcion("No hay suficientes unidades del producto, verifique los datos ingresados");
+                }
+            }
+            else
+            {
+                throw new ClienteSinDineroExcepcion(cliente.Nombre, cliente.Saldo, "Error en la venta, verifique los datos ingresados");
             }
             return altaOk;
         }
@@ -104,7 +116,6 @@ namespace Entidades
         /// <returns></returns>
         public static bool operator +(List<Empleado> listaEmpleados, Empleado empleado)
         {
-            bool altaOk = false;
             foreach (Empleado empl in listaEmpleados)
             {
                 if (empl == empleado)
@@ -113,8 +124,7 @@ namespace Entidades
                 }
             }
             listaEmpleados.Add(empleado);
-            altaOk = true;
-            return altaOk;
+            return true;
         }
         /// <summary>
         /// Sobrecarga del metodo - para eliminar un empleado de la lista de empleados

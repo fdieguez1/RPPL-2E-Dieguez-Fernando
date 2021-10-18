@@ -47,20 +47,6 @@ namespace Entidades
                 this.id = value;
             }
         }
-        public Venta this[int id]
-        {
-            get
-            {
-                foreach (Venta vent in ListaVentas)
-                {
-                    if (vent.id == id)
-                    {
-                        return vent;
-                    }
-                }
-                return null;
-            }
-        }
         public Producto Producto
         {
             get
@@ -98,7 +84,7 @@ namespace Entidades
         {
             get
             {
-                return this.Producto.Precio * this.Unidades + this.TotalEnvio;
+                return Math.Round(this.Producto.Precio * this.Unidades + this.TotalEnvio, 2, MidpointRounding.AwayFromZero);
             }
         }
         public ETipoEnvio TipoEnvio
@@ -112,13 +98,7 @@ namespace Entidades
                 this.tipoEnvio = value;
             }
         }
-        public int KmsEnvio
-        {
-            get
-            {
-                return new Random().Next(100, 1000);
-            }
-        }
+
         /// <summary>
         /// Solo lectura, devuelve el calculo total del envio 
         /// ( Total kms + precio tipo envio + peso )
@@ -128,7 +108,8 @@ namespace Entidades
         {
             get
             {
-                return this.KmsEnvio / 2 + (int)this.TipoEnvio + this.Producto.Peso / 10f;
+                float costoEnvio = Core.CostoTipoEnvio[TipoEnvio.ToString()];
+                return Math.Round(this.Cliente.KmsEnvio / 2 + costoEnvio + this.Producto.Peso * this.Unidades / 10f, 2, MidpointRounding.AwayFromZero);
             }
         }
 
@@ -190,9 +171,8 @@ namespace Entidades
             for (int i = 0; i < 5; i++)
             {
                 testCount++;
-                int salary = rnd.Next(10000, 100000);
-                Venta newVenta = new Venta(Producto.ListaProductos[rnd.Next(0, Producto.ListaProductos.Count)], Core.ListaClientes[rnd.Next(0, Core.ListaClientes.Count)], rnd.Next(1, 2)
-                    , rnd.Next(10) > 5 ? ETipoEnvio.Moto : ETipoEnvio.MiniFlete);
+                Venta newVenta = new Venta(Producto.ListaProductos[rnd.Next(0, Producto.ListaProductos.Count)], Core.ListaClientes[rnd.Next(0, Core.ListaClientes.Count)], rnd.Next(1, 2),
+                     rnd.Next(10) > 5 ? ETipoEnvio.Moto : ETipoEnvio.MiniFlete);
                 altaOk = ListaVentas + newVenta;
                 if (!altaOk)
                 {
@@ -230,7 +210,6 @@ namespace Entidades
         /// <returns>Devuelve true si logro cargar la venta, false si no lo logro</returns>
         public static bool operator +(List<Venta> listaVentas, Venta venta)
         {
-            bool altaOk = false;
             foreach (Venta vnt in listaVentas)
             {
                 if (vnt == venta)
@@ -239,8 +218,7 @@ namespace Entidades
                 }
             }
             listaVentas.Add(venta);
-            altaOk = true;
-            return altaOk;
+            return true;
         }
         /// <summary>
         /// Sobrecarga del metodo - para eliminar un venta de la lista de ventas
@@ -250,7 +228,6 @@ namespace Entidades
         /// <returns>devuelve true si logro eliminarlo, false si no lo logro</returns>
         public static bool operator -(List<Venta> listaVentas, Venta venta)
         {
-            bool removeOk = false;
             foreach (Venta emp in listaVentas)
             {
                 if (emp == venta)
@@ -259,8 +236,7 @@ namespace Entidades
                     return true;
                 }
             }
-            removeOk = false;
-            return removeOk;
+            return false;
         }
         /// <summary>
         /// Sobrecarga del metodo == para comparar si dos ventas son iguales en sus usuarios

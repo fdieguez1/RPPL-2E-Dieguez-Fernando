@@ -1,9 +1,8 @@
 ﻿using Entidades;
 using Entidades.Enums;
-using PetShopForms.Vistas.Productos;
+using Entidades.Exceptions;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -24,12 +23,6 @@ namespace PetShopForms.Vistas.Ventas
         private void Agregar_Load(object sender, EventArgs e)
         {
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
-            //VentaData newMDIChild = new VentaData();
-            //this.IsMdiContainer = true;
-            //newMDIChild.Dock = DockStyle.Fill;
-            //newMDIChild.FormBorderStyle = FormBorderStyle.None;
-            //newMDIChild.MdiParent = this;
-            //newMDIChild.Show();
             ventaDataForm = (VentaData)Inicio.AddFormToControl(pFullContainer.Controls, new VentaData());
         }
 
@@ -37,16 +30,45 @@ namespace PetShopForms.Vistas.Ventas
         {
             if (ventaDataForm.Unidades > 0)
             {
-                //Todo completo
+                try
+                {
+                    if (((Empleado)Core.UsuarioLogueado).Vender(ventaDataForm.ProductoSeleccionado, ventaDataForm.ClienteSeleccionado,
+                        ventaDataForm.Unidades, ventaDataForm.TipoEnvio))
+                    {
+                        MessageBox.Show("Venta guardada correctamente",
+                                        "Operacion exitosa",
+                                        MessageBoxButtons.OK);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al realizar la venta",
+                                          "Error",
+                                          MessageBoxButtons.OK);
+                    }
+                }
+                catch (ClienteSinDineroExcepcion ex)
+                {
+                    MessageBox.Show(ex.MensajeError,
+                                      "Error",
+                                      MessageBoxButtons.OK);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message,
+                                      "Error",
+                                      MessageBoxButtons.OK);
+                }
+
             }
             else
             {
-                //Incompleto
-                MessageBox.Show("Seleccione un producto, un cliente e ingrese una cantidad",
+                MessageBox.Show("Ingrese una cantidad de unidades superior a 0",
                                       "Error",
                                       MessageBoxButtons.OK);
             }
-            
+
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

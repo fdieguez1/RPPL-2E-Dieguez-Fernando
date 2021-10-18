@@ -102,7 +102,6 @@ namespace Entidades
         /// <returns></returns>
         public static bool operator +(List<Administrador> listaEmpleados, Administrador administrador)
         {
-            bool altaOk = false;
             foreach (Administrador admin in listaEmpleados)
             {
                 if (admin == administrador)
@@ -111,8 +110,7 @@ namespace Entidades
                 }
             }
             listaEmpleados.Add(administrador);
-            altaOk = true;
-            return altaOk;
+            return true;
         }
         /// <summary>
         /// Sobrecarga del metodo - para eliminar un administrador de la lista de administradors

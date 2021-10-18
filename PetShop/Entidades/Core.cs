@@ -8,23 +8,73 @@ namespace Entidades
 {
     public static class Core
     {
+        static Dictionary<string, float> tipoEnvio;
+        /// <summary>
+        /// Dictionary que guarda los tipos de envio con su costo
+        /// </summary>
+        public static Dictionary<string, float> CostoTipoEnvio
+        {
+            get
+            {
+                return tipoEnvio;
+            }
+            set
+            {
+                tipoEnvio = value;
+            }
+        }
+
         /// <summary>
         /// Usuario al cual pertenece la sesion iniciada
         /// </summary>
         public static Persona UsuarioLogueado;
-        public static List<Empleado> ListaEmpleados { get; set; }
-        static List<Cliente> listaClientes;
-        public static List<Cliente> ListaClientes
+        
+        static List<Empleado> listaEmpleados;
+        /// <summary>
+        /// Listado de empleados cargados en el sistema
+        /// </summary>
+        public static List<Empleado> ListaEmpleados
         {
-            get { return listaClientes; }
-            set { listaClientes = value; }
+            get
+            {
+                return listaEmpleados;
+            }
+            set
+            {
+                listaEmpleados = value;
+            }
         }
 
+        static List<Cliente> listaClientes;
+        /// <summary>
+        /// Listado de clientes cargados en el sistema
+        /// </summary>
+        public static List<Cliente> ListaClientes
+        {
+            get
+            {
+                return listaClientes;
+            }
+            set
+            {
+                listaClientes = value;
+            }
+        }
+
+        /// <summary>
+        /// Construtor estatico de la clase core del sistema, inicializa las colecciones
+        /// </summary>
         static Core()
         {
             ListaEmpleados = new List<Empleado>();
             ListaClientes = new List<Cliente>();
+            CostoTipoEnvio = new Dictionary<string, float>
+            {
+                { "Moto", 250 },
+                { "MiniFlete", 450 }
+            };
         }
+
         /// <summary>
         /// Devuelve una lista de administradores, filtrando solo del tipo Administrador
         /// </summary>
@@ -92,6 +142,8 @@ namespace Entidades
                 return false;
             }
         }
+
+
 
     }
 }

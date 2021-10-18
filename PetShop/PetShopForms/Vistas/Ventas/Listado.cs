@@ -39,7 +39,7 @@ namespace PetShopForms.Vistas.Ventas
             {
                 int selectedRowIndex = this.dgvProductos.SelectedCells[0].RowIndex;
                 int selectedId = (int)dgvProductos.Rows[selectedRowIndex].Cells["Id"].Value;
-                if (MessageBox.Show($"Seguro que desea eliminar el cliente de id: {selectedId}?",
+                if (MessageBox.Show($"Seguro que desea eliminar la venta de id: {selectedId}?",
                                          "Confirmacion",
                                          MessageBoxButtons.YesNo) == DialogResult.No)
                 {
@@ -47,13 +47,13 @@ namespace PetShopForms.Vistas.Ventas
                 }
                 else
                 {
-                    foreach (Cliente clt in Core.ListaClientes)
+                    foreach (Venta vta in Venta.ListaVentas)
                     {
-                        if (clt.Id == selectedId)
+                        if (vta.Id == selectedId)
                         {
-                            if (Core.ListaClientes - clt)
+                            if (Venta.ListaVentas - vta)
                             {
-                                MessageBox.Show("Empleado eliminado",
+                                MessageBox.Show("Venta eliminada",
                                          "Operacion exitosa",
                                          MessageBoxButtons.OK);
 
@@ -61,7 +61,7 @@ namespace PetShopForms.Vistas.Ventas
                             }
                             else
                             {
-                                MessageBox.Show("Empleado no eliminado",
+                                MessageBox.Show("Venta no eliminada",
                                            "Error",
                                            MessageBoxButtons.OK);
                                 break;

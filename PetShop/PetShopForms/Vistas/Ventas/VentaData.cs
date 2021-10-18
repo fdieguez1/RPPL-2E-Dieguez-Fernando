@@ -18,6 +18,11 @@ namespace PetShopForms.Vistas.Ventas
         Producto productoSeleccionado;
         int unidades;
 
+        double totalUnidades;
+        float costoEnvio;
+        double costoEnvioTotal;
+        double costoTotal;
+
         public Cliente ClienteSeleccionado
         {
             get
@@ -76,8 +81,8 @@ namespace PetShopForms.Vistas.Ventas
             dgvProductos.DataSource = Producto.ListaProductos;
             dgvClientes.DataSource = Core.ListaClientes;
             this.txtUnidades.Text = "0";
-            this.dgvProductos.ClearSelection();
-            this.dgvClientes.ClearSelection();
+            ProductoSeleccionado = (Producto)this.dgvProductos.CurrentRow.DataBoundItem;
+            ClienteSeleccionado = (Cliente)this.dgvClientes.CurrentRow.DataBoundItem;
             Array enums = Enum.GetValues(typeof(ETipoEnvio));
             foreach (var item in enums)
             {
@@ -101,7 +106,10 @@ namespace PetShopForms.Vistas.Ventas
             if (this.txtUnidades.Text.Length > 0)
             {
                 if (Validaciones.ValidarDouble(this.txtUnidades.Text))
+                {
                     this.Unidades = int.Parse(this.txtUnidades.Text);
+                    this.CargarCostos();
+                }
                 else
                 {
                     this.txtUnidades.Text = "0";
@@ -128,17 +136,42 @@ namespace PetShopForms.Vistas.Ventas
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             ProductoSeleccionado = (Producto)dgvProductos.CurrentRow.DataBoundItem;
-
+            this.CargarCostos();
         }
 
         private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             ClienteSeleccionado = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
+            this.CargarCostos();
         }
 
         private void cmbTipoEnvio_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.TipoEnvio = (ETipoEnvio)this.cmbTipoEnvio.SelectedItem;
+            this.CargarCostos();
+        }
+        void CargarCostos()
+        {
+            totalUnidades = ProductoSeleccionado.Precio * this.Unidades;
+            costoEnvio = Core.CostoTipoEnvio[TipoEnvio.ToString()];
+            costoEnvioTotal = Math.Round(this.ClienteSeleccionado.KmsEnvio / 2 + costoEnvio + this.ProductoSeleccionado.Peso * this.Unidades / 10f, 2, MidpointRounding.AwayFromZero);
+            costoTotal = Math.Round(totalUnidades + costoEnvioTotal, 2, MidpointRounding.AwayFromZero);
+            this.lblTotalUnidades.Text = totalUnidades.ToString();
+            this.lblCostoEnvio.Text = costoEnvioTotal.ToString();
+            this.lblTotal.Text = costoTotal.ToString();
+            Inicio.ResetTimeOutTime();
+        }
 
+        private void dgvClientes_MouseUp(object sender, MouseEventArgs e)
+        {
+            ClienteSeleccionado = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
+            this.CargarCostos();
+        }
+
+        private void dgvProductos_MouseUp(object sender, MouseEventArgs e)
+        {
+            ProductoSeleccionado = (Producto)dgvProductos.CurrentRow.DataBoundItem;
+            this.CargarCostos();
         }
     }
 }

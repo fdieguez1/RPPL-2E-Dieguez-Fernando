@@ -38,40 +38,55 @@ namespace PetShopForms.Vistas.Ventas
             this.btnRemoveUnit = new System.Windows.Forms.Button();
             this.btnAddUnit = new System.Windows.Forms.Button();
             this.cmbTipoEnvio = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblTotalUnidades = new System.Windows.Forms.Label();
+            this.lblCostoEnvio = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvProductos
             // 
+            this.dgvProductos.AllowUserToAddRows = false;
+            this.dgvProductos.AllowUserToDeleteRows = false;
             this.dgvProductos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProductos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvProductos.Location = new System.Drawing.Point(12, 31);
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.RowTemplate.Height = 25;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductos.Size = new System.Drawing.Size(491, 127);
+            this.dgvProductos.Size = new System.Drawing.Size(650, 127);
             this.dgvProductos.TabIndex = 0;
             this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
+            this.dgvProductos.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dgvProductos_MouseUp);
             // 
             // dgvClientes
             // 
+            this.dgvClientes.AllowUserToAddRows = false;
+            this.dgvClientes.AllowUserToDeleteRows = false;
             this.dgvClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvClientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvClientes.Location = new System.Drawing.Point(12, 212);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.RowTemplate.Height = 25;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientes.Size = new System.Drawing.Size(491, 146);
+            this.dgvClientes.Size = new System.Drawing.Size(650, 146);
             this.dgvClientes.TabIndex = 1;
             this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);
+            this.dgvClientes.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dgvClientes_MouseUp);
             // 
             // lblClienteTitle
             // 
@@ -150,17 +165,91 @@ namespace PetShopForms.Vistas.Ventas
             // 
             this.cmbTipoEnvio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoEnvio.FormattingEnabled = true;
-            this.cmbTipoEnvio.Location = new System.Drawing.Point(188, 386);
+            this.cmbTipoEnvio.Location = new System.Drawing.Point(300, 386);
             this.cmbTipoEnvio.Name = "cmbTipoEnvio";
-            this.cmbTipoEnvio.Size = new System.Drawing.Size(121, 23);
+            this.cmbTipoEnvio.Size = new System.Drawing.Size(100, 23);
             this.cmbTipoEnvio.TabIndex = 8;
             this.cmbTipoEnvio.SelectedIndexChanged += new System.EventHandler(this.cmbTipoEnvio_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(300, 368);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 15);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Tipo de envio";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(187, 368);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(104, 15);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Total por unidades";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(417, 368);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 15);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Costo Envio";
+            // 
+            // lblTotalUnidades
+            // 
+            this.lblTotalUnidades.Location = new System.Drawing.Point(188, 386);
+            this.lblTotalUnidades.Name = "lblTotalUnidades";
+            this.lblTotalUnidades.Size = new System.Drawing.Size(100, 23);
+            this.lblTotalUnidades.TabIndex = 12;
+            this.lblTotalUnidades.Text = "0";
+            this.lblTotalUnidades.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCostoEnvio
+            // 
+            this.lblCostoEnvio.Location = new System.Drawing.Point(403, 385);
+            this.lblCostoEnvio.Name = "lblCostoEnvio";
+            this.lblCostoEnvio.Size = new System.Drawing.Size(100, 23);
+            this.lblCostoEnvio.TabIndex = 13;
+            this.lblCostoEnvio.Text = "0";
+            this.lblCostoEnvio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(594, 368);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(32, 15);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Total";
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Location = new System.Drawing.Point(562, 383);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(100, 23);
+            this.lblTotal.TabIndex = 15;
+            this.lblTotal.Text = "0";
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // VentaData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 421);
+            this.ClientSize = new System.Drawing.Size(674, 421);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblCostoEnvio);
+            this.Controls.Add(this.lblTotalUnidades);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbTipoEnvio);
             this.Controls.Add(this.btnAddUnit);
             this.Controls.Add(this.btnRemoveUnit);
@@ -191,5 +280,12 @@ namespace PetShopForms.Vistas.Ventas
         private System.Windows.Forms.Button btnRemoveUnit;
         private System.Windows.Forms.Button btnAddUnit;
         private System.Windows.Forms.ComboBox cmbTipoEnvio;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTotalUnidades;
+        private System.Windows.Forms.Label lblCostoEnvio;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblTotal;
     }
 }

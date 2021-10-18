@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Entidades.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -62,21 +63,35 @@ namespace PetShopForms
         {
             string usuario = txtUsuario.Text;
             string contrasenia = txtContrasenia.Text;
-            
-            if (!string.IsNullOrWhiteSpace(usuario) || !string.IsNullOrWhiteSpace(contrasenia)) {
-                Persona auxUsuario = Persona.Login(usuario, contrasenia);
-                if (auxUsuario != null)
+
+            if (!string.IsNullOrWhiteSpace(usuario) || !string.IsNullOrWhiteSpace(contrasenia))
+            {
+                try
                 {
-                    Core.UsuarioLogueado = auxUsuario;
-                    Form inicio = new Inicio(this);
-                    inicio.Show();
-                    this.Hide();
+                    Persona auxUsuario = Persona.Login(usuario, contrasenia);
+                    if (auxUsuario != null)
+                    {
+                        Core.UsuarioLogueado = auxUsuario;
+                        Form inicio = new Inicio(this);
+                        inicio.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario o contraseña no encontrados",
+                                          "Error",
+                                          MessageBoxButtons.OK);
+                    }
                 }
-                else
+                catch (UsuarioInvalidoException ex)
                 {
-                    MessageBox.Show("Usuario o contraseña no encontrados",
-                                      "Error",
-                                      MessageBoxButtons.OK);
+                    MessageBox.Show(ex.Message, "Error",
+                                     MessageBoxButtons.OK);
+                }
+                finally
+                {
+                    txtUsuario.Text = string.Empty;
+                    txtContrasenia.Text = string.Empty;
                 }
             }
             else

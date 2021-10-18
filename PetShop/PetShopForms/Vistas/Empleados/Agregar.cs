@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Entidades.Exceptions;
 using PetShopForms.Vistas.Persona;
 using System;
 using System.Collections.Generic;
@@ -72,33 +73,43 @@ namespace PetShopForms.Vistas.Empleados
             }
             else
             {
-                if (isAdmin)
+                try
                 {
-                    Administrador auxAdmin = new Administrador(nombre, apellido, usuario, contrasenia, cuil, sueldo, isAdmin, isSuperAdmin, bono);
-                    altaOk = Core.ListaEmpleados + auxAdmin;
-                    userType = auxAdmin.GetType().ToString();
+                    if (isAdmin)
+                    {
+                        Administrador auxAdmin = new Administrador(nombre, apellido, usuario, contrasenia, cuil, sueldo, isAdmin, isSuperAdmin, bono);
+                        altaOk = Core.ListaEmpleados + auxAdmin;
+                        userType = auxAdmin.GetType().ToString();
+                    }
+                    else
+                    {
+                        Empleado auxEmpleado = new Empleado(nombre, apellido, usuario, contrasenia, cuil, sueldo);
+                        altaOk = Core.ListaEmpleados + auxEmpleado;
+                        userType = auxEmpleado.GetType().ToString();
+                    }
+                    userType = userType.Split('.')[1];
+                    if (altaOk)
+                    {
+                        MessageBox.Show($"Alta de {userType} exitosa",
+                                                  "Carga exitosa",
+                                                  MessageBoxButtons.OK);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error en la carga del empleado",
+                                                  "Error",
+                                                  MessageBoxButtons.OK);
+                    }
                 }
-                else
+                catch (CuilException ex)
                 {
-                    Empleado auxEmpleado = new Empleado(nombre, apellido, usuario, contrasenia, cuil, sueldo);
-                    altaOk = Core.ListaEmpleados + auxEmpleado;
-                    userType = auxEmpleado.GetType().ToString();
+                    MessageBox.Show(ex.Message,
+                                                  "Error",
+                                                  MessageBoxButtons.OK);
                 }
-                userType = userType.Split('.')[1];
-                if (altaOk)
-                {
-                    MessageBox.Show($"Alta de {userType} exitosa",
-                                              "Carga exitosa",
-                                              MessageBoxButtons.OK);
-                }
-                else
-                {
-                    MessageBox.Show("Error en la carga del empleado",
-                                              "Error",
-                                              MessageBoxButtons.OK);
-                }
-                this.Close();
             }
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
