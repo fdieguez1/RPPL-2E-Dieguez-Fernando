@@ -99,7 +99,7 @@ namespace PetShopForms.Vistas.Clientes
             {
                 if (filterId != 0)
                 {
-                    clientesFiltrados = clientesFiltrados.Where(x => x.Id == filterId).ToList(); ;
+                    clientesFiltrados = clientesFiltrados.Where(x => x.Id == filterId).ToList();
                 }
                 if (filterString != null)
                 {
