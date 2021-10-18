@@ -84,7 +84,7 @@ namespace PetShopForms.Vistas.Administradores
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Editar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Editar empleado";
+            this.Text = "Editar administrador";
             this.Load += new System.EventHandler(this.Editar_Load);
             this.Click += new System.EventHandler(this.Editar_Click);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Editar_Paint);

@@ -87,7 +87,7 @@ namespace PetShopForms.Vistas.Productos
             this.MinimizeBox = false;
             this.Name = "Agregar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Agregar empleado";
+            this.Text = "Agregar producto";
             this.Load += new System.EventHandler(this.Agregar_Load);
             this.Click += new System.EventHandler(this.Agregar_Click);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Agregar_Paint);

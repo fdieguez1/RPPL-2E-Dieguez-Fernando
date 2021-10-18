@@ -18,6 +18,7 @@ namespace PetShopForms.Vistas.Clientes
         public PersonaData PersonaDataForm;
         string usuario, contrasenia, nombre, apellido;
         double saldo, cuil;
+        bool saldoOk;
         int kmsEnvio;
 
         public Agregar()
@@ -39,9 +40,9 @@ namespace PetShopForms.Vistas.Clientes
             nombre = PersonaDataForm.Nombre;
             apellido = PersonaDataForm.Apellido;
             kmsEnvio = new Random().Next(100, 600);
-            saldo = double.Parse(txtSaldo.Text);
+            saldoOk = double.TryParse(txtSaldo.Text, out saldo);
             if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(contrasenia) || cuil < 1
-                || string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido) || saldo < 1)
+                || string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido) || saldo < 1 && saldoOk)
             {
                 MessageBox.Show("Todos los campos son requeridos",
                                       "Error",
