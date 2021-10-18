@@ -63,16 +63,41 @@ namespace PetShopForms.Vistas.Persona
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
-            this.Nombre = txtNombre.Text;
+            Inicio.ResetTimeOutTime();
+            if (this.txtNombre.Text.Length > 0)
+            {
+                if (Validaciones.ValidarNombreApellido(this.txtNombre.Text))
+                    this.Nombre = this.txtNombre.Text;
+                else
+                {
+                    this.txtNombre.Text = string.Empty;
+                    MessageBox.Show("Solo estan permitidas letras",
+                                         "Error",
+                                         MessageBoxButtons.OK);
+                }
+            }
         }
 
         private void txtApellido_TextChanged(object sender, EventArgs e)
         {
-            this.Apellido = txtApellido.Text;
+            if (this.txtApellido.Text.Length > 0)
+            {
+                if (Validaciones.ValidarNombreApellido(this.txtApellido.Text))
+                    this.Apellido = this.txtApellido.Text;
+                else
+                {
+                    this.txtApellido.Text = string.Empty;
+                    MessageBox.Show("Solo estan permitidas letras",
+                                         "Error",
+                                         MessageBoxButtons.OK);
+                }
+            }
+            Inicio.ResetTimeOutTime();
         }
 
         private void txtCuil_TextChanged(object sender, EventArgs e)
         {
+            Inicio.ResetTimeOutTime();
             if (this.txtCuil.Text.Length > 0)
             {
                 if (Validaciones.ValidarDouble(this.txtCuil.Text))
@@ -89,11 +114,13 @@ namespace PetShopForms.Vistas.Persona
 
         private void txtUsuario_TextChanged(object sender, EventArgs e)
         {
+            Inicio.ResetTimeOutTime();
             this.Usuario = txtUsuario.Text;
         }
 
         private void txtContrasenia_TextChanged(object sender, EventArgs e)
         {
+            Inicio.ResetTimeOutTime();
             this.Contrasenia = txtContrasenia.Text;
         }
 

@@ -37,7 +37,7 @@ namespace PetShopForms.Vistas.Administradores
         {
             if (this.dgvAdmins.SelectedCells.Count > 0)
             {
-                Form form = new Empleados.Editar((Administrador)dgvAdmins.CurrentRow.DataBoundItem);
+                Form form = new Editar((Administrador)dgvAdmins.CurrentRow.DataBoundItem);
                 DialogResult dialogRes = form.ShowDialog();
                 if (dialogRes != DialogResult.None)
                 {
@@ -92,6 +92,21 @@ namespace PetShopForms.Vistas.Administradores
             {
                 dgvAdmins.DataSource = Core.ListarAdministradores();
             }
+        }
+
+        private void Listado_Click(object sender, EventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
+        }
+
+        private void Listado_MouseClick(object sender, MouseEventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
+        }
+
+        private void Listado_Paint(object sender, PaintEventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
         }
     }
 }

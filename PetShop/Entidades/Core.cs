@@ -8,6 +8,10 @@ namespace Entidades
 {
     public static class Core
     {
+        /// <summary>
+        /// Usuario al cual pertenece la sesion iniciada
+        /// </summary>
+        public static Persona UsuarioLogueado;
         public static List<Empleado> ListaEmpleados { get; set; }
         static List<Cliente> listaClientes;
         public static List<Cliente> ListaClientes

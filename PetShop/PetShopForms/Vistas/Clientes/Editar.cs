@@ -19,6 +19,17 @@ namespace PetShopForms.Vistas.Clientes
 
         public PersonaData PersonaDataForm;
         public Cliente selectedCliente;
+
+        private void Editar_MouseClick(object sender, MouseEventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
+        }
+
+        private void Editar_Click(object sender, EventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
+        }
+
         public Editar(Cliente cliente)
         {
             InitializeComponent();
@@ -61,7 +72,7 @@ namespace PetShopForms.Vistas.Clientes
                     if (Core.ListaClientes[i] == selectedCliente)
                     {
                         Core.ListaClientes[i] = auxCliente;
-                        MessageBox.Show("Empleado editado con exito",
+                        MessageBox.Show("Cliente editado con exito",
                                     "Operacion exitosa",
                                     MessageBoxButtons.OK);
                         break;

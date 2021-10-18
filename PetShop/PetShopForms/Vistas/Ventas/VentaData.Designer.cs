@@ -37,6 +37,7 @@ namespace PetShopForms.Vistas.Ventas
             this.txtUnidades = new System.Windows.Forms.TextBox();
             this.btnRemoveUnit = new System.Windows.Forms.Button();
             this.btnAddUnit = new System.Windows.Forms.Button();
+            this.cmbTipoEnvio = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +53,7 @@ namespace PetShopForms.Vistas.Ventas
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.RowTemplate.Height = 25;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductos.Size = new System.Drawing.Size(491, 106);
+            this.dgvProductos.Size = new System.Drawing.Size(491, 127);
             this.dgvProductos.TabIndex = 0;
             this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
             // 
@@ -64,11 +65,11 @@ namespace PetShopForms.Vistas.Ventas
             this.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvClientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Location = new System.Drawing.Point(12, 163);
+            this.dgvClientes.Location = new System.Drawing.Point(12, 212);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.RowTemplate.Height = 25;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientes.Size = new System.Drawing.Size(491, 91);
+            this.dgvClientes.Size = new System.Drawing.Size(491, 146);
             this.dgvClientes.TabIndex = 1;
             this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);
             // 
@@ -78,7 +79,7 @@ namespace PetShopForms.Vistas.Ventas
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblClienteTitle.AutoSize = true;
-            this.lblClienteTitle.Location = new System.Drawing.Point(12, 145);
+            this.lblClienteTitle.Location = new System.Drawing.Point(13, 183);
             this.lblClienteTitle.Name = "lblClienteTitle";
             this.lblClienteTitle.Size = new System.Drawing.Size(44, 15);
             this.lblClienteTitle.TabIndex = 2;
@@ -100,7 +101,7 @@ namespace PetShopForms.Vistas.Ventas
             // 
             this.lblUnits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblUnits.AutoSize = true;
-            this.lblUnits.Location = new System.Drawing.Point(13, 264);
+            this.lblUnits.Location = new System.Drawing.Point(13, 368);
             this.lblUnits.Name = "lblUnits";
             this.lblUnits.Size = new System.Drawing.Size(56, 15);
             this.lblUnits.TabIndex = 4;
@@ -109,7 +110,7 @@ namespace PetShopForms.Vistas.Ventas
             // txtUnidades
             // 
             this.txtUnidades.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtUnidades.Location = new System.Drawing.Point(47, 282);
+            this.txtUnidades.Location = new System.Drawing.Point(47, 386);
             this.txtUnidades.Name = "txtUnidades";
             this.txtUnidades.Size = new System.Drawing.Size(100, 23);
             this.txtUnidades.TabIndex = 5;
@@ -123,7 +124,7 @@ namespace PetShopForms.Vistas.Ventas
             this.btnRemoveUnit.BackColor = System.Drawing.Color.SlateBlue;
             this.btnRemoveUnit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveUnit.ForeColor = System.Drawing.Color.White;
-            this.btnRemoveUnit.Location = new System.Drawing.Point(13, 282);
+            this.btnRemoveUnit.Location = new System.Drawing.Point(13, 386);
             this.btnRemoveUnit.Name = "btnRemoveUnit";
             this.btnRemoveUnit.Size = new System.Drawing.Size(28, 24);
             this.btnRemoveUnit.TabIndex = 6;
@@ -137,7 +138,7 @@ namespace PetShopForms.Vistas.Ventas
             this.btnAddUnit.BackColor = System.Drawing.Color.SlateBlue;
             this.btnAddUnit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddUnit.ForeColor = System.Drawing.Color.White;
-            this.btnAddUnit.Location = new System.Drawing.Point(154, 282);
+            this.btnAddUnit.Location = new System.Drawing.Point(154, 386);
             this.btnAddUnit.Name = "btnAddUnit";
             this.btnAddUnit.Size = new System.Drawing.Size(27, 23);
             this.btnAddUnit.TabIndex = 7;
@@ -145,11 +146,22 @@ namespace PetShopForms.Vistas.Ventas
             this.btnAddUnit.UseVisualStyleBackColor = false;
             this.btnAddUnit.Click += new System.EventHandler(this.btnAddUnit_Click);
             // 
+            // cmbTipoEnvio
+            // 
+            this.cmbTipoEnvio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoEnvio.FormattingEnabled = true;
+            this.cmbTipoEnvio.Location = new System.Drawing.Point(188, 386);
+            this.cmbTipoEnvio.Name = "cmbTipoEnvio";
+            this.cmbTipoEnvio.Size = new System.Drawing.Size(121, 23);
+            this.cmbTipoEnvio.TabIndex = 8;
+            this.cmbTipoEnvio.SelectedIndexChanged += new System.EventHandler(this.cmbTipoEnvio_SelectedIndexChanged);
+            // 
             // VentaData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 317);
+            this.ClientSize = new System.Drawing.Size(515, 421);
+            this.Controls.Add(this.cmbTipoEnvio);
             this.Controls.Add(this.btnAddUnit);
             this.Controls.Add(this.btnRemoveUnit);
             this.Controls.Add(this.txtUnidades);
@@ -178,5 +190,6 @@ namespace PetShopForms.Vistas.Ventas
         private System.Windows.Forms.TextBox txtUnidades;
         private System.Windows.Forms.Button btnRemoveUnit;
         private System.Windows.Forms.Button btnAddUnit;
+        private System.Windows.Forms.ComboBox cmbTipoEnvio;
     }
 }

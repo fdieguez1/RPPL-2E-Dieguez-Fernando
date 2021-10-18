@@ -15,8 +15,8 @@ namespace PetShopForms
     public partial class Inicio : Form
     {
         Form login;
-
         Form menu;
+        public static int timeOutTime = 30;
 
         public Form Login
         {
@@ -60,7 +60,7 @@ namespace PetShopForms
         /// <param name="e"></param>
         private void Inicio_Load(object sender, EventArgs e)
         {
-            if (Persona.UsuarioLogueado is Administrador)
+            if (Core.UsuarioLogueado is Administrador)
             {
                 Menu = new MenuAdministrador(this) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             }
@@ -70,9 +70,13 @@ namespace PetShopForms
             }
             this.pMenu.Controls.Add(Menu);
             menu.Show();
-            lblWelcome.Text = $"Bienvenido, {Persona.UsuarioLogueado.NombreCompleto}";
-            lblUserType.Text = Persona.UsuarioLogueado is Administrador ? "Administrador" : "Empleado";
+            lblWelcome.Text = $"Bienvenido, {Core.UsuarioLogueado.NombreCompleto}";
+            lblUserType.Text = Core.UsuarioLogueado is Administrador ? "Administrador" : "Empleado";
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+            timeOutTime = 30;
+            this.lblTiempoFuera.Text = timeOutTime.ToString();
+            this.lblTime.Text = DateTime.Now.ToString("F");
+
         }
         /// <summary>
         /// Metodo que se ocupa de cambiar contenido del paner principal del form Inicio con una instancia de un form dada, limpia el control y luego agrega la nueva vista
@@ -95,11 +99,44 @@ namespace PetShopForms
                                     "Confirmacion",
                                     MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                Persona.UsuarioLogueado = null;
+                Core.UsuarioLogueado = null;
                 this.Login.Show();
                 this.Close();
             }
         }
-       
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.lblTime.Text = DateTime.Now.ToString("F");
+            timeOutTime--;
+            this.lblTiempoFuera.Text = timeOutTime.ToString();
+            if (timeOutTime <= 0)
+            {
+                this.timer1.Enabled = false;
+                if (MessageBox.Show("Cerrando sesion por inactividad",
+                                    "Error",
+                                    MessageBoxButtons.OK) == DialogResult.OK)
+                {
+                    Core.UsuarioLogueado = null;
+                    this.Login.Show();
+                    this.Close();
+                }
+            }
+        }
+
+        private void pMenu_Paint(object sender, PaintEventArgs e)
+        {
+            ResetTimeOutTime();
+        }
+
+        private void pRenderBody_Paint(object sender, PaintEventArgs e)
+        {
+            ResetTimeOutTime();
+        }
+
+        public static void ResetTimeOutTime()
+        {
+            timeOutTime = 30;
+        }
     }
 }

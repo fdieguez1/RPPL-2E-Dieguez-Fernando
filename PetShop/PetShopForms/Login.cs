@@ -67,7 +67,7 @@ namespace PetShopForms
                 Persona auxUsuario = Persona.Login(usuario, contrasenia);
                 if (auxUsuario != null)
                 {
-                    Persona.UsuarioLogueado = auxUsuario;
+                    Core.UsuarioLogueado = auxUsuario;
                     Form inicio = new Inicio(this);
                     inicio.Show();
                     this.Hide();

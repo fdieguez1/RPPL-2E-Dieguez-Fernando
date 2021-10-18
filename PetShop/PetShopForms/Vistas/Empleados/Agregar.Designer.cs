@@ -29,7 +29,6 @@ namespace PetShopForms.Vistas.Empleados
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Agregar));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
             this.pFullContainer = new System.Windows.Forms.Panel();
@@ -89,6 +88,9 @@ namespace PetShopForms.Vistas.Empleados
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar empleado";
             this.Load += new System.EventHandler(this.Agregar_Load);
+            this.Click += new System.EventHandler(this.Agregar_Click);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Agregar_Paint);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Agregar_MouseClick);
             this.ResumeLayout(false);
 
         }

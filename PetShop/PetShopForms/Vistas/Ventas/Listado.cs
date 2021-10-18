@@ -80,6 +80,10 @@ namespace PetShopForms.Vistas.Ventas
                 dgvProductos.DataSource = Venta.ListarVentas();
             }
         }
-       
+
+        private void Listado_Paint(object sender, PaintEventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
+        }
     }
 }

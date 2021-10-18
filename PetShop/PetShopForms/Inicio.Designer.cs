@@ -29,12 +29,16 @@ namespace PetShopForms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.lblWelcome = new System.Windows.Forms.Label();
             this.lblUserType = new System.Windows.Forms.Label();
             this.pRenderBody = new System.Windows.Forms.Panel();
             this.pMenu = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lblTiempoFuera = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblWelcome
@@ -42,7 +46,7 @@ namespace PetShopForms
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.BackColor = System.Drawing.Color.Transparent;
             this.lblWelcome.Font = new System.Drawing.Font("Roboto Thin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblWelcome.Location = new System.Drawing.Point(12, 16);
+            this.lblWelcome.Location = new System.Drawing.Point(190, 70);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(92, 19);
             this.lblWelcome.TabIndex = 0;
@@ -70,6 +74,7 @@ namespace PetShopForms
             this.pRenderBody.Name = "pRenderBody";
             this.pRenderBody.Size = new System.Drawing.Size(685, 484);
             this.pRenderBody.TabIndex = 8;
+            this.pRenderBody.Paint += new System.Windows.Forms.PaintEventHandler(this.pRenderBody_Paint);
             // 
             // pMenu
             // 
@@ -82,6 +87,7 @@ namespace PetShopForms
             this.pMenu.Name = "pMenu";
             this.pMenu.Size = new System.Drawing.Size(134, 484);
             this.pMenu.TabIndex = 9;
+            this.pMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pMenu_Paint);
             // 
             // btnClose
             // 
@@ -98,6 +104,34 @@ namespace PetShopForms
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblTime.Font = new System.Drawing.Font("Roboto Thin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTime.Location = new System.Drawing.Point(190, 102);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(42, 19);
+            this.lblTime.TabIndex = 11;
+            this.lblTime.Text = "Hora";
+            // 
+            // lblTiempoFuera
+            // 
+            this.lblTiempoFuera.AutoSize = true;
+            this.lblTiempoFuera.BackColor = System.Drawing.Color.Transparent;
+            this.lblTiempoFuera.Font = new System.Drawing.Font("Roboto Thin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTiempoFuera.Location = new System.Drawing.Point(736, 102);
+            this.lblTiempoFuera.Name = "lblTiempoFuera";
+            this.lblTiempoFuera.Size = new System.Drawing.Size(101, 19);
+            this.lblTiempoFuera.TabIndex = 12;
+            this.lblTiempoFuera.Text = "TiempoFuera";
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -105,6 +139,8 @@ namespace PetShopForms
             this.BackColor = System.Drawing.Color.Indigo;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(849, 620);
+            this.Controls.Add(this.lblTiempoFuera);
+            this.Controls.Add(this.lblTime);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.pMenu);
             this.Controls.Add(this.pRenderBody);
@@ -129,6 +165,9 @@ namespace PetShopForms
         private System.Windows.Forms.Panel pRenderBody;
         private System.Windows.Forms.Panel pMenu;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Label lblTiempoFuera;
     }
 }
 

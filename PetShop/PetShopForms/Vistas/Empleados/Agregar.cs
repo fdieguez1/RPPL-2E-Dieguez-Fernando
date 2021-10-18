@@ -19,6 +19,22 @@ namespace PetShopForms.Vistas.Empleados
         string usuario, contrasenia, nombre, apellido;
         double sueldo, cuil, bono;
         bool isAdmin, isSuperAdmin;
+
+        private void Agregar_Paint(object sender, PaintEventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
+        }
+
+        private void Agregar_Click(object sender, EventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
+        }
+
+        private void Agregar_MouseClick(object sender, MouseEventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
+        }
+
         bool altaOk = false;
         string userType = "";
 
@@ -58,7 +74,7 @@ namespace PetShopForms.Vistas.Empleados
             {
                 if (isAdmin)
                 {
-                    Administrador auxAdmin = new Administrador(nombre, apellido, usuario, contrasenia, cuil, sueldo, isSuperAdmin, bono);
+                    Administrador auxAdmin = new Administrador(nombre, apellido, usuario, contrasenia, cuil, sueldo, isAdmin, isSuperAdmin, bono);
                     altaOk = Core.ListaEmpleados + auxAdmin;
                     userType = auxAdmin.GetType().ToString();
                 }

@@ -13,6 +13,7 @@ namespace PetShopForms.Vistas.Clientes
 {
     public partial class Listado : Form
     {
+        bool botonesVisibles;
         public Listado()
         {
             InitializeComponent();
@@ -21,6 +22,10 @@ namespace PetShopForms.Vistas.Clientes
         private void Listado_Load(object sender, EventArgs e)
         {
             CargarClientes();
+            botonesVisibles = Core.UsuarioLogueado.EsAdmin();
+            btnAdd.Visible = botonesVisibles;
+            btnEdit.Visible = botonesVisibles;
+            btnDelete.Visible = botonesVisibles;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -92,6 +97,16 @@ namespace PetShopForms.Vistas.Clientes
             {
                 dgvClientes.DataSource = new List<Cliente>(Core.ListaClientes);
             }
+        }
+
+        private void Listado_Paint(object sender, PaintEventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
+        }
+
+        private void Listado_MouseClick(object sender, MouseEventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
         }
     }
 }

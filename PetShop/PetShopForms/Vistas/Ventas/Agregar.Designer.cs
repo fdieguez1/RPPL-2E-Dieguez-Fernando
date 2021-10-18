@@ -88,6 +88,9 @@ namespace PetShopForms.Vistas.Ventas
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar venta";
             this.Load += new System.EventHandler(this.Agregar_Load);
+            this.Click += new System.EventHandler(this.Agregar_Click);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Agregar_Paint);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Agregar_MouseClick);
             this.ResumeLayout(false);
 
         }

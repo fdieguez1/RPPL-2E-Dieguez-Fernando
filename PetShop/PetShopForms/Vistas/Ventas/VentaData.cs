@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Entidades.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,6 +52,19 @@ namespace PetShopForms.Vistas.Ventas
                 this.unidades = value;
             }
         }
+        ETipoEnvio tipoEnvio;
+        public ETipoEnvio TipoEnvio
+        {
+            get
+            {
+                return this.tipoEnvio;
+            }
+            set
+            {
+                this.cmbTipoEnvio.SelectedIndex = (int)value;
+                this.tipoEnvio = value;
+            }
+        }
 
         public VentaData()
         {
@@ -64,6 +78,12 @@ namespace PetShopForms.Vistas.Ventas
             this.txtUnidades.Text = "0";
             this.dgvProductos.ClearSelection();
             this.dgvClientes.ClearSelection();
+            Array enums = Enum.GetValues(typeof(ETipoEnvio));
+            foreach (var item in enums)
+            {
+                this.cmbTipoEnvio.Items.Add(item);
+            }
+            this.cmbTipoEnvio.SelectedItem = this.cmbTipoEnvio.Items[0];
         }
 
         private void btnAddUnit_Click(object sender, EventArgs e)
@@ -114,6 +134,11 @@ namespace PetShopForms.Vistas.Ventas
         private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             ClienteSeleccionado = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
+        }
+
+        private void cmbTipoEnvio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

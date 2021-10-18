@@ -94,5 +94,10 @@ namespace PetShopForms.Vistas.Empleados
                 dgvEmpleados.DataSource = Core.ListarEmpleados();
             }
         }
+
+        private void Listado_Paint(object sender, PaintEventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
+        }
     }
 }

@@ -29,7 +29,6 @@ namespace PetShopForms.Vistas.Empleados
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editar));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
             this.pFullContainer = new System.Windows.Forms.Panel();
@@ -87,6 +86,8 @@ namespace PetShopForms.Vistas.Empleados
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar empleado";
             this.Load += new System.EventHandler(this.Editar_Load);
+            this.Click += new System.EventHandler(this.Editar_Click);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Editar_MouseClick);
             this.ResumeLayout(false);
 
         }

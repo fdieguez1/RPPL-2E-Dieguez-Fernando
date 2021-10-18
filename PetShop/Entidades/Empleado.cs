@@ -17,7 +17,10 @@ namespace Entidades
         double sueldo;
         public double Sueldo
         {
-            get { return this.sueldo; }
+            get
+            {
+                return this.sueldo;
+            }
             set
             {
                 this.sueldo = value;

@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using PetShopForms.Vistas.Empleados;
 using PetShopForms.Vistas.Persona;
 using System;
 using System.Collections.Generic;
@@ -10,33 +11,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PetShopForms.Vistas.Empleados
+namespace PetShopForms.Vistas.Administradores
 {
     public partial class Editar : Form
     {
         public PersonaData PersonaDataForm;
         public EmpleadoData EmpleadoDataForm;
-        public Empleado selectedEmpleado;
+        public Administrador selectedAdmin;
         string usuario, contrasenia, nombre, apellido;
         double sueldo, cuil, bono;
         bool isAdmin, isSuperAdmin;
-
-        private void Editar_Click(object sender, EventArgs e)
-        {
-            Inicio.ResetTimeOutTime();
-        }
 
         private void Editar_MouseClick(object sender, MouseEventArgs e)
         {
             Inicio.ResetTimeOutTime();
         }
 
+        private void Editar_Paint(object sender, PaintEventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
+        }
+
+        private void Editar_Click(object sender, EventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
+        }
+
         string userType = "";
 
-        public Editar(Empleado empleado)
+        public Editar(Administrador admin)
         {
             InitializeComponent();
-            selectedEmpleado = empleado;
+            selectedAdmin = admin;
 
         }
 
@@ -45,12 +51,15 @@ namespace PetShopForms.Vistas.Empleados
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             EmpleadoDataForm = (EmpleadoData)Inicio.AddFormToControl(pFullContainer.Controls, new EmpleadoData());
             PersonaDataForm = (PersonaData)Inicio.AddFormToControl(pFullContainer.Controls, new Persona.PersonaData());
-            EmpleadoDataForm.Sueldo = selectedEmpleado.Sueldo;
-            PersonaDataForm.Nombre = selectedEmpleado.Nombre;
-            PersonaDataForm.Apellido = selectedEmpleado.Apellido;
-            PersonaDataForm.Cuil = selectedEmpleado.Cuil;
-            PersonaDataForm.Usuario = selectedEmpleado.Usuario;
-            PersonaDataForm.Contrasenia = selectedEmpleado.Contrasenia;
+            EmpleadoDataForm.Sueldo = selectedAdmin.Sueldo;
+            PersonaDataForm.Nombre = selectedAdmin.Nombre;
+            PersonaDataForm.Apellido = selectedAdmin.Apellido;
+            PersonaDataForm.Cuil = selectedAdmin.Cuil;
+            PersonaDataForm.Usuario = selectedAdmin.Usuario;
+            PersonaDataForm.Contrasenia = selectedAdmin.Contrasenia;
+            EmpleadoDataForm.Bono = selectedAdmin.Bono;
+            EmpleadoDataForm.IsSuperAdmin = selectedAdmin.SuperAdminPower;
+            EmpleadoDataForm.IsAdmin = selectedAdmin.EsAdmin();
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -76,10 +85,10 @@ namespace PetShopForms.Vistas.Empleados
                 if (isAdmin)
                 {
                     Administrador auxAdmin = new Administrador(nombre, apellido, usuario, contrasenia, cuil, sueldo, isAdmin, isSuperAdmin, bono);
-                    auxAdmin.Id = selectedEmpleado.Id;
+                    auxAdmin.Id = selectedAdmin.Id;
                     for (int i = 0; i < Core.ListaEmpleados.Count; i++)
                     {
-                        if (Core.ListaEmpleados[i] == selectedEmpleado)
+                        if (Core.ListaEmpleados[i] == selectedAdmin)
                         {
                             Core.ListaEmpleados[i] = auxAdmin;
                             MessageBox.Show("Administrador editado con exito",
@@ -93,10 +102,10 @@ namespace PetShopForms.Vistas.Empleados
                 else
                 {
                     Empleado auxEmpleado = new Empleado(nombre, apellido, usuario, contrasenia, cuil, sueldo);
-                    auxEmpleado.Id = selectedEmpleado.Id;
+                    auxEmpleado.Id = selectedAdmin.Id;
                     for (int i = 0; i < Core.ListaEmpleados.Count; i++)
                     {
-                        if (Core.ListaEmpleados[i] == selectedEmpleado)
+                        if (Core.ListaEmpleados[i] == selectedAdmin)
                         {
                             Core.ListaEmpleados[i] = auxEmpleado;
                             MessageBox.Show("Empleado editado con exito",

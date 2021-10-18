@@ -53,5 +53,20 @@ namespace PetShopForms.Vistas.Ventas
         {
             this.Close();
         }
+
+        private void Agregar_Paint(object sender, PaintEventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
+        }
+
+        private void Agregar_Click(object sender, EventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
+        }
+
+        private void Agregar_MouseClick(object sender, MouseEventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
+        }
     }
 }

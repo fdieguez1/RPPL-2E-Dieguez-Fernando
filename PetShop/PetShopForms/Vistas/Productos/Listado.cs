@@ -93,6 +93,10 @@ namespace PetShopForms.Vistas.Productos
                 dgvProductos.DataSource = new List<Entidades.Producto>(Producto.ListaProductos);
             }
         }
-       
+
+        private void Listado_Paint(object sender, PaintEventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
+        }
     }
 }

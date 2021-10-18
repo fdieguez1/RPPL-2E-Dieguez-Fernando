@@ -30,7 +30,7 @@ namespace PetShopForms.Vistas.Empleados
                 this.sueldo = value;
             }
         }
-        
+
         public double Bono
         {
             get
@@ -51,6 +51,7 @@ namespace PetShopForms.Vistas.Empleados
             }
             set
             {
+                this.chkIsSuperAdmin.Checked = value;
                 this.isSuperAdmin = value;
             }
         }
@@ -62,6 +63,7 @@ namespace PetShopForms.Vistas.Empleados
             }
             set
             {
+                this.chkIsAdmin.Checked = value;
                 this.isAdmin = value;
             }
         }
@@ -73,6 +75,7 @@ namespace PetShopForms.Vistas.Empleados
 
         private void txtSueldo_TextChanged(object sender, EventArgs e)
         {
+            Inicio.ResetTimeOutTime();
             if (this.txtSueldo.Text.Length > 0)
             {
                 if (Validaciones.ValidarDouble(this.txtSueldo.Text))
@@ -89,6 +92,7 @@ namespace PetShopForms.Vistas.Empleados
 
         private void chkIsAdmin_CheckedChanged(object sender, EventArgs e)
         {
+            Inicio.ResetTimeOutTime();
             IsAdmin = chkIsAdmin.Checked;
             if (chkIsAdmin.Checked)
             {
@@ -110,6 +114,7 @@ namespace PetShopForms.Vistas.Empleados
 
         private void txtBono_TextChanged(object sender, EventArgs e)
         {
+            Inicio.ResetTimeOutTime();
             if (this.txtBono.Text.Length > 0)
             {
                 if (Validaciones.ValidarDouble(this.txtBono.Text))

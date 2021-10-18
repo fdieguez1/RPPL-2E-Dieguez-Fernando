@@ -9,11 +9,22 @@ namespace Entidades
     /// <summary>
     /// Clase sellada Administrador, que no permite herencia, hereda los atributos de empleado y posee permisos especiales. Es la contenedora de la lista de empleados
     /// </summary>
-#pragma warning disable CS0661 
+#pragma warning disable CS0661
     public sealed class Administrador : Empleado
 #pragma warning restore CS0661 
     {
-
+        bool isAdmin;
+        public bool IsAdmin
+        {
+            get
+            {
+                return this.isAdmin;
+            }
+            set
+            {
+                this.isAdmin = value;
+            }
+        }
 
         bool superAdminPower;
         public bool SuperAdminPower
@@ -30,8 +41,21 @@ namespace Entidades
         double bono;
         public double Bono
         {
-            get { return this.bono; }
-            set { this.bono = value; }
+            get
+            {
+                return this.bono;
+            }
+            set
+            {
+                this.bono = value;
+            }
+        }
+        public override string NombreCompleto
+        {
+            get
+            {
+                return $"{base.NombreCompleto} | Admin";
+            }
         }
 
         /// <summary>
@@ -46,8 +70,9 @@ namespace Entidades
         /// <param name="superAdminPower">bool permiso a asignar</param>
         /// <param name="bono">double bono a asignar</param>
         public Administrador(string nombre, string apellido, string usuario, string contrasenia, double cuil,
-            double sueldo, bool superAdminPower, double bono) : base(nombre, apellido, usuario, contrasenia, cuil, sueldo)
+            double sueldo, bool isAdmin, bool superAdminPower, double bono) : base(nombre, apellido, usuario, contrasenia, cuil, sueldo)
         {
+            this.isAdmin = isAdmin;
             this.SuperAdminPower = superAdminPower;
             this.Bono = bono;
         }
@@ -64,7 +89,7 @@ namespace Entidades
         /// <returns>bool true si logro realizar la carga, false si no lo logro</returns>
         public static bool CrearAdminPrueba()
         {
-            Empleado auxAdmin = new Administrador("Elpe", "Rrito", "Admin", "utnfra2021", 20222222223, 1000000, true, 100000);
+            Empleado auxAdmin = new Administrador("Elpe", "Rrito", "Admin", "utnfra2021", 20222222223, 1000000, true, true, 100000);
             bool altaOk = Core.ListaEmpleados + auxAdmin;
             return altaOk;
         }

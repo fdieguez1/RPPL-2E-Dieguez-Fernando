@@ -36,6 +36,8 @@ namespace PetShopForms.Vistas.Productos
             ProductDataForm.Precio = SelectedProduct.Precio;
             ProductDataForm.Cantidad = SelectedProduct.Cantidad;
             ProductDataForm.TipoProd = SelectedProduct.TipoProducto;
+            ProductDataForm.Descripcion = SelectedProduct.Descripcion;
+            ProductDataForm.Peso = SelectedProduct.Peso;
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -61,7 +63,7 @@ namespace PetShopForms.Vistas.Productos
                     if (Producto.ListaProductos[i] == SelectedProduct)
                     {
                         Producto.ListaProductos[i] = auxProducto;
-                        MessageBox.Show("Empleado editado con exito",
+                        MessageBox.Show("Producto editado con exito",
                                     "Operacion exitosa",
                                     MessageBoxButtons.OK);
                         break;
@@ -74,6 +76,16 @@ namespace PetShopForms.Vistas.Productos
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Editar_Click(object sender, EventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
+        }
+
+        private void Editar_MouseClick(object sender, MouseEventArgs e)
+        {
+            Inicio.ResetTimeOutTime();
         }
     }
 }

@@ -8,10 +8,7 @@ namespace Entidades
     /// </summary>
     public abstract class Persona
     {
-        /// <summary>
-        /// Usuario al cual pertenece la sesion iniciada
-        /// </summary>
-        public static Persona UsuarioLogueado;
+
         /// <summary>
         /// Id autoincremental
         /// </summary>
@@ -110,6 +107,13 @@ namespace Entidades
             PrevId = 0;
         }
 
+        public Persona(string nombre, string apellido)
+        {
+            this.Id = ++PrevId;
+            PrevId = this.Id;
+            this.Nombre = nombre;
+            this.Apellido = apellido;
+        }
         /// <summary>
         /// Constructor base para cargar los datos basicos de una persona
         /// </summary>
@@ -118,12 +122,8 @@ namespace Entidades
         /// <param name="usuario">usuario a asignar</param>
         /// <param name="contrasenia">contraseña a asignar</param>
         /// <param name="cuil">cuil a asignar</param>
-        public Persona(string nombre, string apellido, string usuario, string contrasenia, double cuil)
+        public Persona(string nombre, string apellido, string usuario, string contrasenia, double cuil) : this(nombre, apellido)
         {
-            this.Id = ++PrevId;
-            PrevId = this.Id;
-            this.Nombre = nombre;
-            this.Apellido = apellido;
             this.Usuario = usuario;
             this.Contrasenia = contrasenia;
             this.Cuil = cuil;

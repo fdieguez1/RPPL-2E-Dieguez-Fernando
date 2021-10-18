@@ -134,6 +134,8 @@ namespace PetShopForms.Vistas.Clientes
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado";
             this.Load += new System.EventHandler(this.Listado_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Listado_Paint);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Listado_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
 

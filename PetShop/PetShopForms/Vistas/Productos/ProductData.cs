@@ -67,6 +67,7 @@ namespace PetShopForms.Vistas.Productos
                 this.peso = value;
             }
         }
+
         public string Descripcion
         {
             get
@@ -97,6 +98,7 @@ namespace PetShopForms.Vistas.Productos
 
         private void txtPrecio_TextChanged(object sender, EventArgs e)
         {
+            Inicio.ResetTimeOutTime();
             if (this.txtPrecio.Text.Length > 0)
             {
                 if (Validaciones.ValidarDouble(this.txtPrecio.Text))
@@ -113,6 +115,7 @@ namespace PetShopForms.Vistas.Productos
 
         private void txtCantidad_TextChanged(object sender, EventArgs e)
         {
+            Inicio.ResetTimeOutTime();
             if (this.txtCantidad.Text.Length > 0)
             {
                 if (Validaciones.ValidarDouble(this.txtCantidad.Text))
@@ -129,15 +132,17 @@ namespace PetShopForms.Vistas.Productos
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            Inicio.ResetTimeOutTime();
             this.Descripcion = this.txtDescripcion.Text;
         }
 
         private void txtPeso_TextChanged(object sender, EventArgs e)
         {
+            Inicio.ResetTimeOutTime();
             if (this.txtPeso.Text.Length > 0)
             {
                 if (Validaciones.ValidarDouble(this.txtPeso.Text))
-                    this.Cantidad = int.Parse(this.txtPeso.Text);
+                    this.Peso = int.Parse(this.txtPeso.Text);
                 else
                 {
                     this.txtPeso.Text = string.Empty;
@@ -146,6 +151,11 @@ namespace PetShopForms.Vistas.Productos
                                          MessageBoxButtons.OK);
                 }
             }
+        }
+
+        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.TipoProd = (ETipoProducto)cmbTipo.SelectedItem;
         }
     }
 }
